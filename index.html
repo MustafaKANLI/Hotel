@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Home</title>
+</head>
+<body style="background-color: #F4F6FC">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<div class="container" style="background-color:#E8EAEF">
+    <!--This is for Header, navbar-->
+    <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
+        <header class="header">
+
+            <nav class="navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="" alt="" width=50 height="30" class="d-inline-block align-text-top">
+                        Paradis Hotel
+                    </a>
+
+
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-current="page" href="index.html" aria-disabled="true">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Rooms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="0">User</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+
+    </div>
+
+    <div class="container" style="padding-top:20px; padding-bottom: 10px; background-color: #E8EAEF">
+        <h2>Home</h2>
+    </div>
+
+    <!--This is for content-->
+    <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
+        <div class="row">
+            <div class="col-2">
+                <img class="img-responsive" src="src/Vip/Vip-room.jpg" width="180" height="100" />
+            </div>
+            <!--This is for Vip Button and rates-->
+            <div class="col-2">
+                <div class="row">
+                    <button type="button" class="btn btn-primary">Vip Room</button>
+                </div>
+                <div class="row" style="padding-top: 15px">
+                    <div class="col-7">
+                        <p>500 Usd/Day</p>
+                    </div>
+                    <div class="col">
+                        <p>4.8 rate</p>
+                    </div>
+                </div>
+            </div>
+            <!--This is for choose room types-->
+            <div class="col-4" align="center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="selectRoomTypeButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Room Type
+                    </button>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                        <li><a class="dropdown-item">Vip Room</a></li>
+                        <li><a class="dropdown-item">Family Room</a></li>
+                        <li><a class="dropdown-item">Double Room</a></li>
+                        <li><a class="dropdown-item">Single Room</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <!--This is for choose number of person-->
+            <div class="col-4" align="center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="selectNumOfPersonButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Number of Person
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item">1</a></li>
+                        <li><a class="dropdown-item">2</a></li>
+                        <li><a class="dropdown-item">3-4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 50px">
+            <div class="col-2">
+                <img class="img-responsive" src="src/Vip/Vip-room.jpg" width="180" height="100" />
+            </div>
+            <!--This is for Vip Button and rates-->
+            <div class="col-2">
+                <div class="row">
+                    <button type="button" class="btn btn-primary">Family Room</button>
+                </div>
+                <div class="row" style="padding-top: 15px">
+                    <div class="col-7">
+                        <p>400 Usd/Day</p>
+                    </div>
+                    <div class="col">
+                        <p>4.8 rate</p>
+                    </div>
+                </div>
+            </div>
+            <!--This is for select check in date-->
+            <div class="col-4" align="center" style="padding-top: 30px">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="selectCheckInDateButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Check-in Date
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <input type="date">
+                    </ul>
+                </div>
+            </div>
+            <!--This is for select check out date-->
+            <div class="col-4" align="center" style="padding-top: 30px">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="selectCheckOutDateButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Check-out Date
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item">1</a></li>
+                        <li><a class="dropdown-item">2</a></li>
+                        <li><a class="dropdown-item">3-4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row" style="padding-top: 50px">
+            <div class="col-2">
+                <img class="img-responsive" src="src/Vip/Vip-room.jpg" width="180" height="100" />
+            </div>
+            <!--This is for Vip Button and rates-->
+            <div class="col-2">
+                <div class="row">
+                    <button type="button" class="btn btn-primary">Double Room</button>
+                </div>
+                <div class="row" style="padding-top: 15px">
+                    <div class="col-7">
+                        <p>300 Usd/Day</p>
+                    </div>
+                    <div class="col">
+                        <p>4.8 rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 50px">
+            <div class="col-2">
+                <img class="img-responsive" src="src/Vip/Vip-room.jpg" width="180" height="100" />
+            </div>
+            <!--This is for Vip Button and rates-->
+            <div class="col-2">
+                <div class="row">
+                    <button type="button" class="btn btn-primary">Single Room</button>
+                </div>
+                <div class="row" style="padding-top: 15px">
+                    <div class="col-7">
+                        <p>150 Usd/Day</p>
+                    </div>
+                    <div class="col">
+                        <p>4.8 rate</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4"></div>
+            <div class="col-4" align="center" style="padding-top:25px" >
+
+                <a href="reservationPayment.html">
+                    <button type="button" class="btn btn-outline-secondary" style="padding-left:50px;
+                    padding-right:50px; font-size:22px">
+                        Book
+                    </button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top:30px; padding-bottom: 10px"></div>
+
+    <div class="container" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
+        <footer>
+            <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
