@@ -100,7 +100,7 @@
 
                                     <ul class="sub-menu" id="subMenu" style="display: none">
                                         <li class="nav-item">
-                                            <a href="rooms.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                            <a href="rooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                                 <i class="bi bi-house-fill"></i>    Rooms</a>
                                         </li>
                                         <li class="nav-item">
@@ -108,7 +108,7 @@
                                                 <i class="bi bi-person"></i>    Customers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="reservations.html" class="list-group-item list-group-item-action bg-dark" style="color:white"style="color:white">
+                                            <a href="reservations.html" class="list-group-item list-group-item-action bg-primary" style="color:white"style="color:white">
                                                 <i class="bi bi-bookmark-check"></i>    Reservations</a>
                                         </li>
                                     </ul>
@@ -133,141 +133,40 @@
         <div class="col-9" >
             <div class="col" style="border: 1px solid; padding: 30px; background-color: white">
                 <div class="row"  align="center" style="margin-top: 2rem">
-                    <div class="col-4 align-middle">
-                        <div class="row">
-                            <h5>Add Image</h5>
+                    <div class="col-6 align-middle" align="left">
+                        <h5>Name</h5>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameInput" >
+                            <label for="nameInput">Name</label>
                         </div>
-                        <div class="row">
-                            <link rel="stylesheet" href="fileUpload.css" >
-                            <div class="file-upload-wrapper">
-                                <div class="card card-body view file-upload" style="background-color: lightgray">
-                                    <div class="card-text file-upload-message">
-                                        <i class="bi bi-plus-circle-dotted" style="color: #313642"></i>
-                                        <p style="color: #313642">Drag and drop a file here or click</p>
-                                        <input type="file" id="input-file-now" class="file-upload"/>
-                                    </div>
-                                </div>
+                        <h5>Surname</h5>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="surnameInput" >
+                            <label for="surnameInput">Surname</label>
+                        </div>
+                        <h5>Room ID</h5>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="IdInput" >
+                            <label for="IdInput">Room ID</label>
+                        </div>
 
-                            </div>
-                            <script>
-                                $('.file-upload').file_upload();
-                            </script>
-                        </div>
-                    </div>
-                    <div class="col-4 align-middle" align="left">
-                        <div class="row" style="margin-top:23px; padding-left: 10px;padding-right: 10px">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose Room Type</option>
-                                <option value="1">Vip Room</option>
-                                <option value="2">Family Room</option>
-                                <option value="3">Double Room</option>
-                                <option value="3">Single Room</option>
-                            </select>
-                        </div>
-                        <div class="row" style="margin-top:10px; padding-left: 10px;padding-right: 10px">
-                            <label for="inputFloor" >Floor Number</label>
-                            <input type="number" class="form-control" id="inputFloor">
-                        </div>
-                        <div class="row" style="margin-top:10px; padding-left: 10px;padding-right: 10px">
-                            <label for="inputDoor" >Door Number</label>
-                            <input type="number" class="form-control" id="inputDoor">
-                        </div>
+
                     </div>
                     <div class="col-4 align-middle" align="left">
                         <div class="row" style=" padding-left: 10px;padding-right: 10px">
-                            <label for="inputPrice" >Price</label>
-                            <input type="number" class="form-control" id="inputPrice">
-                        </div>
-                        <div class="row" style="margin-top:10px; padding-left: 10px;padding-right: 10px">
-                            <h6>Select services</h6>
-                            <div class="col">
-                                <div class="form-check form-switch">
-
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="cityView" checked enabled>
-                                        <label class="form-check-label" for="cityView">
-                                            City/Sea View
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="doubleBed" checked enabled>
-                                        <label class="form-check-label" for="doubleBed">
-                                            Double Bed
-                                        </label>
-                                    </div>
-                                    <div class="col">
-
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="shower" checked enabled>
-                                        <label class="form-check-label" for="shower">
-                                            Shower
-                                        </label>
-
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="bathroom" checked enabled>
-                                        <label class="form-check-label" for="bathroom">
-                                            Bathroom
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="roomServices" checked enabled>
-                                        <label class="form-check-label" for="roomServices">
-                                            Room Services
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="balcony" checked enabled>
-                                        <label class="form-check-label" for="balcony">
-                                            Balcony
-                                        </label>
-                                    </div>
-                                </div>
-
+                            <h5>Check-in Date</h5>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="checkInInput" >
+                                <label for="checkInInput">Check-in Date</label>
                             </div>
-                            <div class="col">
-
-                                <div class="form-check form-switch">
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="satellite" checked enabled>
-                                        <label class="form-check-label" for="satellite">
-                                            TV Channels
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="wifi" checked enabled>
-                                        <label class="form-check-label" for="wifi">
-                                            Free Wifi
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="desk" checked enabled>
-                                        <label class="form-check-label" for="desk">
-                                            Study Desk
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="telephone" checked enabled>
-                                        <label class="form-check-label" for="telephone">
-                                            Telephone
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="minibar" checked enabled>
-                                        <label class="form-check-label" for="minibar">
-                                            Mini Bar
-                                        </label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-check-input" type="checkbox" name="flexRadioDisabled" id="terrace" checked enabled>
-                                        <label class="form-check-label" for="terrace">
-                                            Terrace
-                                        </label>
-                                    </div>
-
-                                </div>
+                            <h5>Check-out Date</h5>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="checkOutInput" >
+                                <label for="checkOutInput">Check-out Date</label>
                             </div>
-
                         </div>
+
+
                         <div class="row" style="padding-left: 14rem; margin-top: 5rem">
                             <a type="button" data-bs-toggle="modal" data-bs-target="#savingAlert" class="btn btn-outline-primary">Save</a>
                             <!-- Modal -->
@@ -280,12 +179,12 @@
                                         </div>
                                         <div class="modal-body">
                                             <p>
-                                                New room will be added!!!
+                                                New reservation will be added!!!
                                             </p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <a href="rooms.html" type="button" class="btn btn-primary">Continue</a>
+                                            <a href="reservations.html" type="button" class="btn btn-primary">Continue</a>
                                         </div>
                                     </div>
                                 </div>
@@ -294,8 +193,6 @@
                     </div>
                 </div>
             </div>
-
-
 
         </div>
     </div>
