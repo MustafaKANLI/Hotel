@@ -115,7 +115,7 @@
             <img src="../src/images/profile_black.png" width="108px" height="108px">
             <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
                 <div class="row" align="left" style="margin-top:40px">
-                    <p><span class="error" style="color: #ff0000">all of them is required</span></p>
+                    <p><span class="error" style="color: #ff0000">all of them are required</span></p>
                     <div class="col-6">
                         <h5>Name</h5>
                         <div class="form-floating mb-3">
