@@ -108,24 +108,24 @@
                     <input name="email" type="email" class="form-control" id="mailInput" placeholder="name@example.com">
                     <label for="mailInput">E-mail address</label>
                     <?php
-                            echo $emailError;
-                        ?>
+                    echo $emailError;
+                    ?>
                 </div>
                 <h5>Password</h5>
                 <div class="form-floating">
                     <input name="password" type="password" class="form-control" id="passwordInput" placeholder="password">
                     <label for="passwordInput">Password</label>
                     <?php
-                        echo $passwordError;
-                        ?>
+                    echo $passwordError;
+                    ?>
                 </div>
                 <div align="center" style="margin-top: 10px">
                     <a href="userRegister.php" style="color:black"><p >Don't you have an account? <b><ins>Create an Account</ins></b></p></a>
                 </div>
                 <div align="center" style="margin-top: 10px; color: red">
                     <?php
-                        echo $generalError;
-                        ?>
+                    echo $generalError;
+                    ?>
                 </div>
                 <div align="center" style="margin-top: 30px">
                     <button type="submit" class="btn btn-outline-primary btn-lg" style="padding-left: 15px;padding-right: 15px">Login</button>

@@ -85,7 +85,7 @@
         } else {
             $phoneNumber = input($_POST["id"]);
         }
-        if (empty($_POST["email"])) {
+        if (empty($_POST["email"]) || filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
             $emailError = "E-mail is required";
             $confirm = false;
         } else {
@@ -110,7 +110,7 @@
     }
     ?>
     <!--This is for content-->
-    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
+    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 2000px; max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
             <img src="../src/images/profile_black.png" width="108px" height="108px">
             <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
@@ -161,9 +161,17 @@
                             ?>
                         </div>
                         <h5>Password</h5>
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input name="password" type="password" class="form-control" id="passwordInput" placeholder="password">
                             <label for="passwordInput">Password</label>
+                            <?php
+                            echo $passwordError;
+                            ?>
+                        </div>
+                        <h5>Password (Again)</h5>
+                        <div class="form-floating mb-3">
+                            <input name="password" type="password" class="form-control" id="passwordInput2" placeholder="password">
+                            <label for="passwordInput2">Password</label>
                             <?php
                             echo $passwordError;
                             ?>
