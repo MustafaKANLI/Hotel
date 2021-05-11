@@ -18,7 +18,7 @@
 
             <nav class="navbar fixed-top navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <img src="../src/images/logo.png" alt="" width=50 height="30" class="d-inline-block align-text-top">
                         Paradis Hotel
                     </a>
@@ -26,7 +26,7 @@
 
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html" aria-disabled="true">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="gallery.html">Gallery</a>
@@ -113,7 +113,7 @@
     <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 2000px; max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
             <img src="../src/images/profile_black.png" width="108px" height="108px">
-            <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
+            <form action="userRegister.php" method="POST">
                 <div class="row" align="left" style="margin-top:40px">
                     <p><span class="error" style="color: #ff0000">all of them are required</span></p>
                     <div class="col-6">
@@ -170,7 +170,7 @@
                         </div>
                         <h5>Password (Again)</h5>
                         <div class="form-floating mb-3">
-                            <input name="password" type="password" class="form-control" id="passwordInput2" placeholder="password">
+                            <input name="passwordAgain" type="password" class="form-control" id="passwordInput2" placeholder="password">
                             <label for="passwordInput2">Password</label>
                             <?php
                             echo $passwordError;
@@ -185,8 +185,9 @@
                                 problems in web browsers
                             </small></p>
                         <div align="right" style="margin-top: 30px">
-                            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 30px;
+                                <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 30px;
                                      padding-right: 30px; font-size: 22px">Register</button>
+
                         </div>
 
                     </div>
@@ -205,3 +206,27 @@
 </div>
 </body>
 </html>
+
+<?php
+    include("../src/database/connect_db.php");
+    if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"],
+        $_POST["password"],$_POST["passwordAgain"])){
+
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $id = $_POST["id"];
+        $phoneNumber = $_POST["phoneNumber"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $passwordAgain = $_POST["passwordAgain"];
+
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
+        VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')";
+
+        /*if($conn -> query($add)===TRUE){
+            echo "Başarılı";
+        }*/
+    }
+?>

@@ -18,7 +18,7 @@
     <header class="header">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="../src/images/logo.png" alt="" width=50 height="30">
                     Paradis Hotel
 
@@ -84,7 +84,7 @@
 
                             <ul class="no-bullets">
                                 <li class="nav-item" >
-                                    <a href="index.html" class="list-group-item list-group-item-action bg-dark"  style="color:white">
+                                    <a href="index.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
@@ -114,7 +114,7 @@
                                                 <i class="bi bi-house-fill"></i>    Rooms</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="customers.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                            <a href="customers.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                                 <i class="bi bi-person"></i>    Customers</a>
                                         </li>
                                         <li class="nav-item">
@@ -289,64 +289,36 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr><tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr><tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
+
+                            <?php
+                                include("../src/database/connect_db.php");
+
+                                $select = "SELECT * FROM customers";
+                                $result = $conn->query($select);
+
+                                if($result -> num_rows>0){
+                                    while($select = $result->fetch_assoc()){
+                                        echo "
+                                            <tr>
+                                                <td>".$select['id']."</td>
+                                                <td>".$select['fname']."</td>
+                                                <td>".$select['lname']."</td>
+                                                <td>".$select['phonenumber']."</td>
+                                                <td>".$select['status']."</td>
+                                                <td>3800</td>
+                                                <td>3</td>
+                                                <td>
+                                                     <div class='btn-group' role='group' aria-label='Basic outlined example'>
+                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                        <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ";
+                                    }
+                                }
+    
+                            ?>
                         </tbody>
                     </table>
 
@@ -439,3 +411,4 @@
 </div>
 </body>
 </html>
+
