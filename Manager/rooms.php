@@ -110,7 +110,7 @@
 
                                     <ul class="sub-menu" id="subMenu" style="display: none">
                                         <li class="nav-item">
-                                            <a href="rooms.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                            <a href="rooms.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                                 <i class="bi bi-house-fill"></i>    Rooms</a>
                                         </li>
                                         <li class="nav-item">
@@ -218,128 +218,60 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Room Id</th>
+                            <th scope="col">Door Number</th>
                             <th scope="col">Room Type</th>
                             <th scope="col">Floor</th>
-                            <th scope="col">Door Number</th>
+
                             <th scope="col">Price</th>
                             <th scope="col">Status</th>
                             <th scope="col">Edit / Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>201</td>
-                            <td>250</td>
-                            <td>Full</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>202</td>
-                            <td>250</td>
-                            <td>Empty</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>206</td>
-                            <td>250</td>
-                            <td>Empty</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>208</td>
-                            <td>250</td>
-                            <td>Empty</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>224</td>
-                            <td>250</td>
-                            <td>Full</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>224</td>
-                            <td>250</td>
-                            <td>Full</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>224</td>
-                            <td>250</td>
-                            <td>Full</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Single Room</td>
-                            <td>2</td>
-                            <td>224</td>
-                            <td>250</td>
-                            <td>Full</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
+
+                        <?php
+                        include("../src/database/connect_db.php");
+
+                        $select = "SELECT * FROM roomprices\n"
+
+                            . "INNER JOIN rooms\n"
+
+                            . "ON rooms.roomtype=roomprices.roomtype\n"
+
+                            . "ORDER BY doornumber ASC";
+                        $result = $conn->query($select);
+
+                        /*$selectRoomPrice = "SELECT * FROM roomprices\n"
+
+                            . "INNER JOIN rooms\n"
+
+                            . "ON rooms.roomtype=roomprices.roomtype\n"
+
+                            . "ORDER BY doornumber ASC";
+                        $resultRP = $conn->query($selectRoomPrice);*/
+
+                        if($result -> num_rows>0 /*&& $resultRP -> num_rows>0*/){
+                            while($select = $result->fetch_assoc() /*and $selectRoomPrice = $resultRP->fetch_assoc()*/){
+                                echo "
+                                            <tr>
+                                                <td>".$select['doornumber']."</td>
+                                                <td>".$select['roomtype']."</td>
+                                                <td>".$select['floornumber']."</td>
+                                                <td>".$select['price']."</td>
+                                                <td>".$select['status']."</td>
+                         
+                                                <td>
+                                                     <div class='btn-group' role='group' aria-label='Basic outlined example'>
+                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                        <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ";
+                            }
+                        }
+
+                        ?>
 
 
                         </tbody>

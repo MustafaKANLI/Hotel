@@ -37,7 +37,7 @@
                                     <a class="nav-link" href="gallery.html">Gallery</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="rooms.html">Rooms</a>
+                                    <a class="nav-link" href="rooms.php">Rooms</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="reservations.html">Reservations</a>
@@ -63,7 +63,8 @@
     </div>
 
     <?php
-    $confirm = true;
+    //$confirm = true;
+    include("../src/database/connect_db.php");
     $generalError = $email = $password = $emailError = $passwordError = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
@@ -71,7 +72,7 @@
             $emailError = "Email is required";
             $confirm = false;
         } else {
-            $email = input($_POST["email"]);
+            $email = ($_POST["email"]);
         }
         if (empty($_POST["password"])) {
             $passwordError = "Password is required";
@@ -81,8 +82,31 @@
         }
 
 
-        if ($confirm){
-            if ($email =='mustafakanli98@gmail.com' and $password=='1234') {
+        if (isset($_POST["email"], $_POST["password"])) {
+            $emailSql = "SELECT email FROM `customers` WHERE   email = ".$email;
+            $emailRow = $conn -> query($emailSql);
+            $emailSelect = $emailRow['email'];
+            $password = $_POST["password"];
+
+            /*if ($emailSelect->num_rows > 0){
+                //$arr = mysqli_fetch_assoc($emailSelect);
+                //$arr = $emailSelect->fetch_assoc();
+                //$loginEmail = $arr['email'];
+                //echo "rowlara bölündü";
+
+                while ($arr = mysqli_fetch_assoc($emailSelect)){
+                    $loginEmail = $arr['email'];
+                if($loginEmail == $email){
+                    echo "Giriş yap";
+                }
+                }
+
+
+
+            }*/
+
+            if ($email == $emailSelect and $password=='1234') {
+
                 header("Location:profile_accountDetails.html");
             } else {
                 $generalError = "<strong>Wrong Email or Password Try Again</strong>";

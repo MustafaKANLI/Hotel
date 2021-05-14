@@ -1,14 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-$loginText = "Login/Signup";
-$loginLink = "login.php";
+    $loginText = "Login/Signup";
+    $loginLink = "login.php";
 
-if(isset($_SESSION["logged_in"])) {
-    $logged_in = $_SESSION["logged_in"];
-    $loginText = "Mustafa KANLI";
-    $loginLink = "userdashboard.php";
-}
+    if(isset($_SESSION["logged_in"])) {
+        $logged_in = $_SESSION["logged_in"];
+        $loginText = "Mustafa KANLI";
+        $loginLink = "userdashboard.php";
+    }
 ?>
 
 <!doctype html>
@@ -50,7 +50,7 @@ if(isset($_SESSION["logged_in"])) {
                                     <a class="nav-link" href="gallery.html">Gallery</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="rooms.html">Rooms</a>
+                                    <a class="nav-link" href="rooms.php">Rooms</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="reservations.html">Reservations</a>

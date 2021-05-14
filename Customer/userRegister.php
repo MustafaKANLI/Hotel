@@ -32,7 +32,7 @@
                             <a class="nav-link" href="gallery.html">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="rooms.html">Rooms</a>
+                            <a class="nav-link" href="rooms.php">Rooms</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="reservations.html">Reservations</a>
@@ -85,7 +85,7 @@
         } else {
             $phoneNumber = input($_POST["id"]);
         }
-        if (empty($_POST["email"]) || filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+        if (empty($_POST["email"]) || filter_var($email, FILTER_VALIDATE_EMAIL) == true) {
             $emailError = "E-mail is required";
             $confirm = false;
         } else {
@@ -98,7 +98,7 @@
             $password = input($_POST["password"]);
         }
 
-        if ($confirm){
+        if ($confirm==true){
             header("Location:login.php");
         }
     }
@@ -220,13 +220,13 @@
         $password = $_POST["password"];
         $passwordAgain = $_POST["passwordAgain"];
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        //$password = password_hash($password, PASSWORD_DEFAULT);
 
         $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
         VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')";
 
-        /*if($conn -> query($add)===TRUE){
-            echo "Başarılı";
-        }*/
+        if($conn -> query($add)===TRUE){
+            //echo "Başarılı";
+        }
     }
 ?>

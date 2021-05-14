@@ -110,7 +110,7 @@
 
                                     <ul class="sub-menu" id="subMenu" style="display: none">
                                         <li class="nav-item">
-                                            <a href="rooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                            <a href="rooms.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                                 <i class="bi bi-house-fill"></i>    Rooms</a>
                                         </li>
                                         <li class="nav-item">
@@ -214,66 +214,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
                         <tr>
                             <td>123456</td>
                             <td>Mustafa</td>
