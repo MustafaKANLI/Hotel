@@ -241,17 +241,10 @@
                             . "ORDER BY doornumber ASC";
                         $result = $conn->query($select);
 
-                        /*$selectRoomPrice = "SELECT * FROM roomprices\n"
 
-                            . "INNER JOIN rooms\n"
 
-                            . "ON rooms.roomtype=roomprices.roomtype\n"
-
-                            . "ORDER BY doornumber ASC";
-                        $resultRP = $conn->query($selectRoomPrice);*/
-
-                        if($result -> num_rows>0 /*&& $resultRP -> num_rows>0*/){
-                            while($select = $result->fetch_assoc() /*and $selectRoomPrice = $resultRP->fetch_assoc()*/){
+                        if($result -> num_rows>0){
+                            while($select = $result->fetch_assoc()){
                                 echo "
                                             <tr>
                                                 <td>".$select['doornumber']."</td>
