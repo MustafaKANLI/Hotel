@@ -1,31 +1,4 @@
-<?php
-session_start();
-include("../src/database/connect_db.php");
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $email = ($_POST['email']);
-        $password = ($_POST['password']);
-
-        $emailError = "Email is required";
-        $passwordError = "Password is required";
-
-        $selectSql = $conn -> query("SELECT id, email, password FROM `customers` 
-                                                    WHERE   email = '".$email."'");
-        //$selectSql -> execute(['eMail' => $email]);
-        $user = $selectSql->fetch_assoc();
-
-        if($user){ // if user exist
-            if($password === $user['password']){ //login successful
-                $_SESSION['id'] = $user['id'];
-                echo "Successful";
-                echo "Successful";
-                header("Location:index.php");
-            }
-
-        }
-    }
-
-?>
         <!doctype html>
         <html lang="en">
         <head>
@@ -43,48 +16,65 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <!--This is for Header, navbar-->
             <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
                 <header class="header">
-                    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                        <div class="container">
-                            <a class="navbar-brand" href="index.php">
-                                <img src="../src/images/logo.png" alt="" width=50 height="30">
-                                Paradis Hotel
-
-                            </a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                                <div class="col" align="left">
-                                    <ul class="nav justify-content-end">
-                                        <li class="nav-item">
-                                            <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gallery.html">Gallery</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="rooms.php">Rooms</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="reservations.html">Reservations</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="contact.html">Contact</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="login.php"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </nav>
+                    <?php
+                    require ("header.php");
+                    ?>
                 </header>
 
             </div>
+            <?php
+            //session_start();
+            //include("../src/database/connect_db.php");
+
+            $generalError = $email = $password = $emailError = $passwordError = "";
+
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                $email = input($_POST['email']);
+                $password = input($_POST['password']);
+
+
+                if (empty($_POST["email"])) {
+                    $emailError = "Email is required";
+                    $confirm = false;
+                } else {
+                    $email = input($_POST["email"]);
+                }
+                if (empty($_POST["password"])) {
+                    $passwordError = "Password is required";
+                    $confirm = false;
+                } else {
+                    $password = input($_POST["password"]);
+                }
+
+                $selectSql = $conn -> query("SELECT * FROM `customers` 
+                                                    WHERE   email = '".$email."'");
+                //$selectSql -> execute(['eMail' => $email]);
+                $user = $selectSql->fetch_assoc();
+
+                if($user){ // if user exist
+                    if($password === $user['password']){ //login successful
+                        $_SESSION['id'] = $user['id'];
+                        $_SESSION['name'] = $user['fname'];
+                        $_SESSION['surname'] = $user['lname'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['phone'] = $user['phonenumber'];
+
+
+                        //echo "Successful";
+                        header("Location:index.php");
+                    }
+
+                }
+            }
+
+            function input($data) {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+
+            ?>
 
             <div class="container" style="padding-top:20px; padding-bottom: 10px; background-color: #E8EAEF">
 
@@ -102,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <input name="email" type="email" class="form-control" id="mailInput" placeholder="name@example.com">
                                 <label for="mailInput">E-mail address</label>
                                 <?php
-                                //echo $emailError;
+                                echo $emailError;
                                 ?>
                             </div>
                             <h5>Password</h5>
@@ -110,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <input name="password" type="password" class="form-control" id="passwordInput" placeholder="password">
                                 <label for="passwordInput">Password</label>
                                 <?php
-                                //echo $passwordError;
+                                echo $passwordError;
                                 ?>
                             </div>
                             <div align="center" style="margin-top: 10px">
@@ -118,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             </div>
                             <div align="center" style="margin-top: 10px; color: red">
                                 <?php
-                                //echo $generalError;
+                                echo $generalError;
                                 ?>
                             </div>
                             <div align="center" style="margin-top: 30px">
@@ -142,3 +132,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         </body>
         </html>
+

@@ -43,7 +43,7 @@
                                     <a class="nav-link" href="reservations.html">Reservations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="contact.php">Contact</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link " href="login.php"><img src="../src/images/profile.png" width="35px" height="35px"></a>

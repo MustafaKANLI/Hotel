@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Change Password</title>
 </head>
 <body style="background-color: #F4F6FC">
 
@@ -15,45 +15,9 @@
     <!--This is for Header, navbar-->
     <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
         <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="index.php">
-                        <img src="../src/images/logo.png" alt="" width=50 height="30">
-                        Paradis Hotel
-
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                        <div class="col" align="left">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="gallery.html">Gallery</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="rooms.php">Rooms</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="reservations.html">Reservations</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="login.php"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
+            <?php
+            require ("header.php");
+            ?>
         </header>
 
     </div>
@@ -65,46 +29,45 @@
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
-            <h2>Account Details</h2>
+            <form action="profile_changePassword.php" method="POST">
+            <h2>Change Password</h2>
             <div class="row" align="left" style="margin-top:40px">
                 <div class="col-4">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        <a href="profile_accountDetails.php" class="list-group-item list-group-item-action">
                             Account Details
                         </a>
                         <a href="reservations.html" class="list-group-item list-group-item-action">Reservations</a>
-                        <a href="profile_changePassword.html" class="list-group-item list-group-item-action">Change Password</a>
+                        <a href="profile_changePassword.php" class="list-group-item list-group-item-action active">Change Password</a>
                         <a href="profile_reviews.html" class="list-group-item list-group-item-action">Reviews</a>
 
                     </div>
                 </div>
                 <div class="col-8">
-                    <h5>Name</h5>
+                    <h5>Old Password</h5>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nameInput" value="Mustafa">
-                        <label for="nameInput">Name</label>
+                        <input type="password" name="old_password" class="form-control" id="passwordInput" placeholder="password">
+                        <label for="passwordInput">Password</label>
                     </div>
-                    <h5>Surname</h5>
+                    <h5>New Password</h5>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="surnameInput" value="KANLI">
-                        <label for="surnameInput">Surname</label>
-                    </div>
-                    <h5>ID</h5>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="IdInput" value="12345687901">
-                        <label for="IdInput">ID</label>
-                    </div>
-                    <h5>Phone Number</h5>
-                    <div class="form-floating mb-3">
-                        <input type="phone" class="form-control" id="phoneInput" value="555 555 55 55">
-                        <label for="phoneInput">Phone Number</label>
+                        <input type="password" name="new_password" class="form-control" id="passwordInput" placeholder="password">
+                        <label for="passwordInput">Password</label>
                     </div>
 
-                    <h5>E-Mail</h5>
+                    <h5>New Password (Again)</h5>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="mailInput" value="mustafakanli98@gmail.com">
-                        <label for="mailInput">Email address</label>
+                        <input type="password" name="new_passwordAgain" class="form-control" id="passwordInput" placeholder="password">
+                        <label for="passwordInput">Password</label>
                     </div>
+                    <pre><small>
+- At least 8 characters - the more characters better
+- A mixture of both uppercase and lowercase letters
+- A mixture of numbers and letters
+- Inclusion of at least one special character, e.g., ! @ # ? ]
+<b>Note:</b> Don't use < or > in your password, as both can cause
+problems in web browsers
+                    </small></pre>
 
                     <div align="right" style="margin-top: 30px">
                         <a >
@@ -122,12 +85,12 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                        Your informations will be changed!!!!
+                                        Your password will be changed!!!!
                                     </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                                    <button type="submit"  class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
                                 </div>
                             </div>
                         </div>
@@ -135,6 +98,7 @@
 
                 </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -148,3 +112,26 @@
 </div>
 </body>
 </html>
+<?php
+    include("../src/database/connect_db.php");
+    if(isset($_POST["old_password"],$_POST["new_password"],$_POST["new_passwordAgain"],$_POST["phoneNumber"],$_POST["email"],
+        $_POST["password"],$_POST["passwordAgain"])){
+
+        $oldPassword = $_POST["old_password"];
+        $newPassword = $_POST["new_password"];
+        $newPasswordAgain = $_POST["new_passwordAgain"];
+
+        //$password = password_hash($password, PASSWORD_DEFAULT);
+
+        $update = "UPDATE customers
+                   SET password = '".$newPassword."'
+                   WHERE customers.id = '".$_SESSION['id']."'";
+
+        if($conn -> query($update)===TRUE){
+            //echo "Başarılı";
+        }
+
+
+
+    }
+?>

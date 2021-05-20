@@ -15,38 +15,9 @@
     <!--This is for Header, navbar-->
     <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
         <header class="header">
-
-            <nav class="navbar fixed-top navbar-dark bg-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="index.php">
-                        <img src="../src/images/logo.png" alt="" width=50 height="30" class="d-inline-block align-text-top">
-                        Paradis Hotel
-                    </a>
-
-
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="rooms.php">Rooms</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reservations.html">Reservations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="login.php"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                        </li>
-                    </ul>
-
-                </div>
-            </nav>
+            <?php
+            require ("header.php");
+            ?>
         </header>
 
     </div>
@@ -57,7 +28,7 @@
 
     <?php
     $confirm = true;
-    $email = $password = $emailError = $passwordError = "";
+    $email = $password = $emailError = $passwordError = $passwordMatchError = "";
     $name = $nameError = $surname = $surnameError = $id = $idError = $phoneNumber = $phoneNumberError = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
@@ -98,7 +69,11 @@
             $password = input($_POST["password"]);
         }
 
-        if ($confirm==true){
+        if($_POST["password"] != $_POST["passwordAgain"]){
+            $passwordMatchError = "Password doesn't match";
+        }
+
+        else if ($confirm==true){
             header("Location:login.php");
         }
     }
@@ -166,6 +141,7 @@
                             <label for="passwordInput">Password</label>
                             <?php
                             echo $passwordError;
+                            echo $passwordMatchError;
                             ?>
                         </div>
                         <h5>Password (Again)</h5>
@@ -174,6 +150,7 @@
                             <label for="passwordInput2">Password</label>
                             <?php
                             echo $passwordError;
+                            echo $passwordMatchError;
                             ?>
                         </div>
                         <p><small>
@@ -222,11 +199,14 @@
 
         //$password = password_hash($password, PASSWORD_DEFAULT);
 
-        $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
-        VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')";
+            $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
+                    VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')";
 
-        if($conn -> query($add)===TRUE){
-            //echo "Başarılı";
-        }
+            if($conn -> query($add)===TRUE){
+                //echo "Başarılı";
+            }
+
+
+
     }
 ?>
