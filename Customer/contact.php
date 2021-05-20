@@ -73,7 +73,7 @@
     <div class="container" style="padding-top:20px; padding-bottom: 10px; background-color: #E8EAEF"></div>
 
     <!--This is for content-->
-    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 580px; background-color: #FFFFFF">
+    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 1600px; max-width: 900px; overflow:auto; background-color: #FFFFFF">
         <div class="row" align="center">
             <h4>You can contact with me using these ways:</h4>
         </div>
@@ -99,8 +99,15 @@
             </div>
             <div class="col" align="left" style="padding-top: 35px">
                 <a href="https://goo.gl/maps/uV5zSMhTZrq9hMJu5" target="_blank"><button type="button" class="btn btn-outline-info">Lara/Antalya</button></a>
+
             </div>
         </div>
+        <div class="row" align="center" style="padding-top: 40px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6385.242604153256!2d30.7458714!3d36.
+                8515447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39adf65b00089%3A0x33478e4af6aba830!2sLara%20Cd.%2C%20Muratpa%C5%9Fa%2FAntalya!
+                5e0!3m2!1str!2str!4v1621544547235!5m2!1str!2str" height="400px" width="550px" style="border:0; allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
 
     </div>
 
