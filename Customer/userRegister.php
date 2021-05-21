@@ -195,16 +195,18 @@
         $phoneNumber = $_POST["phoneNumber"];
         $email = $_POST["email"];
         $password = $_POST["password"];
+        $password = md5($password);
         $passwordAgain = $_POST["passwordAgain"];
 
         //$password = password_hash($password, PASSWORD_DEFAULT);
 
-            $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
-                    VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')";
+        //require('query.php');
+        $add = $conn -> query("INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
+            VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')");
 
-            if($conn -> query($add)===TRUE){
+            /*if($conn -> query($add)===TRUE){
                 //echo "Başarılı";
-            }
+            }*/
 
 
 

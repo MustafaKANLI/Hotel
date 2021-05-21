@@ -1,3 +1,15 @@
+<?php
+    include("../src/database/connect_db.php");
+    $selectCount = "SELECT (id)
+                FROM customers";
+
+    $resultCount = $conn -> query($selectCount);
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -153,7 +165,7 @@
                                 <h5>Total Customers</h5>
                             </div>
                             <div class="row">
-                                <h4>850</h4>
+                                <h4><?php echo ($resultCount -> num_rows); ?></h4>
                             </div>
                         </div>
                     </div>
@@ -193,9 +205,9 @@
             </div>
 
             <!-- This is for Table -->
-            <div class="row" style="margin-top: 10rem">
+            <div class="row" style="margin-top: 10rem; margin-bottom: 5rem">
 
-                <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 300px">
+                <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 600px">
                     <div class="col" align="right">
                         <a class="btn btn-outline-secondary" href="addCustomer.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Customer</a>
                     </div>
@@ -231,7 +243,7 @@
                         </tr>
 
                             <?php
-                                include("../src/database/connect_db.php");
+
 
                                 $select = "SELECT * FROM customers";
                                 $result = $conn->query($select);

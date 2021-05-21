@@ -208,9 +208,9 @@
             </div>
 
             <!-- This is for Table -->
-            <div class="row" style="margin-top: 10rem">
+            <div class="row" style="margin-top: 10rem; margin-bottom:5rem">
 
-                <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 300px">
+                <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 600px">
                     <div class="col" align="right">
                         <a class="btn btn-outline-secondary" href="addRoom.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Room</a>
                     </div>

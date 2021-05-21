@@ -101,31 +101,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ok
-                                        <?php
-                                            include("../src/database/connect_db.php");
-                                            if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"])){
-
-                                                $name = $_POST["name"];
-                                                $surname = $_POST["surname"];
-                                                $id = $_POST["id"];
-                                                $phoneNumber = $_POST["phoneNumber"];
-                                                $email = $_POST["email"];
-
-                                                //$password = password_hash($password, PASSWORD_DEFAULT);
-
-                                                $add = "INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
-                                                        VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."')";
-
-                                                if($conn -> query($add)===TRUE){
-                                                    //echo "Başarılı";
-                                                }
-
-
-
-                                            }
-                                        ?>
-                                    </button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
                                 </div>
                             </div>
                         </div>
@@ -148,4 +124,31 @@
 </div>
 </body>
 </html>
+
+<?php
+include("../src/database/connect_db.php");
+if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"])){
+
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $id = $_POST["id"];
+    $phoneNumber = $_POST["phoneNumber"];
+    $email = $_POST["email"];
+
+    //$password = password_hash($password, PASSWORD_DEFAULT);
+
+    /*$add = "INSERT INTO customers(id, fname, lname, phonenumber, email)
+            VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."')";*/
+    $add = "UPDATE customers 
+            SET fname = ".$name.", lname = ".$surname.", id = ".$id.", email = ".$email.", phonenumber = ".$phoneNumber."
+            WHERE id = ".$_SESSION['id']."";
+
+    if($conn -> query($add)===TRUE){
+        //echo "Başarılı";
+    }
+
+
+
+}
+?>
 

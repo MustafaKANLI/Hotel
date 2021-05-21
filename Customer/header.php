@@ -14,10 +14,10 @@
         $loginLink = "login.php";
     }
 ?>
+            <link rel="stylesheet" href="../Manager/profileHoverDropdown.css">
 
-
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+                <div class="container" height="90px">
                     <a class="navbar-brand" href="index.php">
                         <img src="../src/images/logo.png" alt="" width=50 height="30">
                         Paradis Hotel
@@ -29,10 +29,11 @@
                     </button>
 
                     <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+
                         <div class="col" align="left">
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
+                                    <a class="nav-link" aria-current="page" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="gallery.html">Gallery</a>
@@ -46,8 +47,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.php">Contact</a>
                                 </li>
+                               <!-- <li class="nav-item">
+                                    <a class="nav-link " href="<?php// echo($loginLink); ?>"><?php //echo($loginText); ?></a>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a class="nav-link " href="<?php echo($loginLink); ?>">Welcome <?php echo($loginText); ?></a>
+                                    <div class="dropdown">
+                                        <a class="nav-link " href="<?php echo($loginLink); ?>"><?php echo($loginText); ?></a>
+                                        <div class="dropdown-content">
+                                            <ul >
+                                                <li ><a href="logout.php" style="color:black; margin: 10px">Log Out</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

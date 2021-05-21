@@ -17,7 +17,7 @@
             <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
                 <header class="header">
                     <?php
-                    require ("header.php");
+                        require ("header.php");
                     ?>
                 </header>
 
@@ -26,11 +26,12 @@
             //session_start();
             //include("../src/database/connect_db.php");
 
-            $generalError = $email = $password = $emailError = $passwordError = "";
+            $email = $password = $emailError = $passwordError = $wrongPassOrEmail = "";
 
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $email = input($_POST['email']);
                 $password = input($_POST['password']);
+                //$password = password_hash($password);
 
 
                 if (empty($_POST["email"])) {
@@ -44,12 +45,11 @@
                     $confirm = false;
                 } else {
                     $password = input($_POST["password"]);
+                    $password = md5($password);
                 }
 
-                $selectSql = $conn -> query("SELECT * FROM `customers` 
-                                                    WHERE   email = '".$email."'");
-                //$selectSql -> execute(['eMail' => $email]);
-                $user = $selectSql->fetch_assoc();
+                include('query.php');
+                //loginQuery();
 
                 if($user){ // if user exist
                     if($password === $user['password']){ //login successful
@@ -62,6 +62,9 @@
 
                         //echo "Successful";
                         header("Location:index.php");
+                    }
+                    else{
+                        $wrongPassOrEmail = "Wrong password or e-mail address";
                     }
 
                 }
@@ -108,7 +111,7 @@
                             </div>
                             <div align="center" style="margin-top: 10px; color: red">
                                 <?php
-                                echo $generalError;
+                                echo $wrongPassOrEmail;
                                 ?>
                             </div>
                             <div align="center" style="margin-top: 30px">

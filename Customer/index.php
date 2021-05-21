@@ -1,3 +1,10 @@
+<?php
+    include("../src/database/connect_db.php");
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -100,46 +107,51 @@
 
             </div>
             <div class="col-3">
-                <div class="row">
-                    <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select Room Types</option>
-                            <option value="1">Vip Room</option>
-                            <option value="2">Family Room</option>
-                            <option value="3">Double Room</option>
-                            <option value="3">Single Room</option>
-                        </select>
 
-                    </div>
-                    <div class="row">
-                        <!--This is for select check in date-->
-                        <label for="dateInput" class="form-label">Check-in Date</label>
-                        <input type="date" class="form-control" id="dateInput">
-                    </div>
+                <div class="row">
+                    <form action="userRegister.php" method="POST">
+                        <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Room Types</option>
+                                <option value="1">Vip Room</option>
+                                <option value="2">Family Room</option>
+                                <option value="3">Double Room</option>
+                                <option value="3">Single Room</option>
+                            </select>
+
+                        </div>
+                        <div class="row">
+                            <!--This is for select check in date-->
+                            <label for="dateInput" class="form-label">Check-in Date</label>
+                            <input type="date" class="form-control" id="dateInput">
+                        </div>
+                    </form>
                 </div>
 
             </div>
             <div class="col-3">
                 <div class="row">
-                    <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select Number Of Person</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3-4</option>
-                        </select>
+                    <form action="userRegister.php" method="POST">
+                        <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Number Of Person</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3-4</option>
+                            </select>
 
-                    </div>
-                    <div class="row">
-                        <!--This is for select check out date-->
-                        <label for="dateInput1" class="form-label">Check-out Date</label>
-                        <input type="date" class="form-control" id="dateInput1">
-                    </div>
-                    <div class="row" align="right" style="padding-top: 450px">
-                        <a href="reservationPayment.html">
-                            <button class="btn btn-secondary" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
-                        </a>
-                    </div>
+                        </div>
+                        <div class="row">
+                            <!--This is for select check out date-->
+                            <label for="dateInput1" class="form-label">Check-out Date</label>
+                            <input type="date" class="form-control" id="dateInput1">
+                        </div>
+                        <div class="row" align="right" style="padding-top: 450px">
+                            <a href="reservationPayment.html">
+                                <button class="btn btn-secondary" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
+                            </a>
+                        </div>
+                    </form>
                 </div>
 
             </div>
