@@ -24,7 +24,7 @@
             </div>
             <?php
             //session_start();
-            //include("../src/database/connect_db.php");
+            include("../src/database/connect_db.php");
 
             $email = $password = $emailError = $passwordError = $wrongPassOrEmail = "";
 
@@ -48,8 +48,9 @@
                     $password = md5($password);
                 }
 
-                include('query.php');
-                //loginQuery();
+                $selectSql = $conn -> query("SELECT * FROM `customers` 
+                                        WHERE   email = '".$email."'");
+                $user = $selectSql->fetch_assoc();
 
                 if($user){ // if user exist
                     if($password === $user['password']){ //login successful

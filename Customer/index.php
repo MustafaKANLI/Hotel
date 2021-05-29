@@ -1,9 +1,3 @@
-<?php
-    include("../src/database/connect_db.php");
-
-
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -33,84 +27,100 @@
         <h2>Home</h2>
     </div>
 
+    <?php
+        $price = $rate = $roomtype = "";
+
+        $selectPrice = $conn -> query("SELECT *
+        FROM roomprices");
+
+        $priceArr = $selectPrice -> fetch_assoc();
+
+       // if(priceArr['price'])
+
+    $roomtype = $priceArr['roomtype'];
+
+
+
+    ?>
+
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
         <div class="row">
-            <div class="col-3" style="padding-left:10px; padding-right: 10px">
-                <div class="row" style="padding-top:30px; padding-bottom: 30px">
-                    <img class="rounded" src="../src/images/Vip-room.jpg" width="180" height="150" />
-                </div>
-                <div class="row" style="padding-top:30px; padding-bottom: 30px">
-                    <img class="rounded" src="../src/images/Vip-room.jpg" width="180" height="150" />
-                </div>
-                <div class="row" style="padding-top:30px; padding-bottom: 30px">
-                    <img class="rounded" src="../src/images/Vip-room.jpg" width="180" height="150" />
-                </div>
-                <div class="row" style="padding-top:30px; padding-bottom: 30px">
-                    <img class="rounded mx-auto d-block" src="../src/images/Vip-room.jpg" width="180" height="150" />
-                </div>
-            </div>
-
-            <div class="col-3" style="vertical-align: center; padding-left: 50px; padding-right:50px">
-                    <div class="row" style="padding-top:30px; margin-bottom: 120px">
-                        <div class="row">
-                            <button type="button" class="btn btn-primary">Vip Room</button>
-                        </div>
-                        <div class="row" style="padding-top: 15px">
-                            <div class="col-7">
-                                <p>500 Usd/Day</p>
-                            </div>
-                            <div class="col">
-                                <p>4.8 rate</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 120px">
-                        <div class="row">
-                            <button type="button" class="btn btn-primary">Family Room</button>
-                        </div>
-                        <div class="row" style="padding-top: 15px">
-                            <div class="col-7">
-                                <p>400 Usd/Day</p>
-                            </div>
-                            <div class="col">
-                                <p>4.8 rate</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 120px">
-                        <div class="row">
-                            <button type="button" class="btn btn-primary">Double Room</button>
-                        </div>
-                        <div class="row" style="padding-top: 15px">
-                            <div class="col-7">
-                                <p>300 Usd/Day</p>
-                            </div>
-                            <div class="col">
-                                <p>4.8 rate</p>
-                            </div>
-                        </div>
-                    </div>
-                <div class="row" style="padding-bottom: 50px">
-                    <div class="row">
-                        <button type="button" class="btn btn-primary">Single Room</button>
-                    </div>
-                    <div class="row" style="padding-top: 15px">
-                        <div class="col-7">
-                            <p>150 Usd/Day</p>
-                        </div>
-                        <div class="col">
-                            <p>4.8 rate</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-3">
-
+            <div class="col-6" style="padding-top:30px; padding-bottom: 30px">
                 <div class="row">
-                    <form action="userRegister.php" method="POST">
+                    <div class="col-6">
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                    </div>
+
+                    <div class="col-6" align="left">
+                        <div class="row" >
+                            <div class="row">
+                                <button type="button" class="btn btn-primary">Vip Room</button>
+                            </div>
+                            <div class="row" style="padding-top: 15px">
+                                <div class="col-7">
+                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                </div>
+                                <div class="col">
+                                    <p> <?php echo $rate ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                    </div>
+
+                    <div class="col-6" align="left">
+                        <div class="row" >
+                            <div class="row">
+                                <button type="button" class="btn btn-primary">Vip Room</button>
+                            </div>
+                            <div class="row" style="padding-top: 15px">
+                                <div class="col-7">
+                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                </div>
+                                <div class="col">
+                                    <p> <?php echo $rate ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                    </div>
+
+                    <div class="col-6" align="left">
+                        <div class="row" >
+                            <div class="row">
+                                <button type="button" class="btn btn-primary">Vip Room</button>
+                            </div>
+                            <div class="row" style="padding-top: 15px">
+                                <div class="col-7">
+                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                </div>
+                                <div class="col">
+                                    <p> <?php echo $rate ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-3">
+                <div class="row">
+
                         <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+                            <form action="rooms_available.php" method="POST">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Room Types</option>
                                 <option value="1">Vip Room</option>
@@ -118,40 +128,46 @@
                                 <option value="3">Double Room</option>
                                 <option value="3">Single Room</option>
                             </select>
+                            </form>
 
                         </div>
                         <div class="row">
+                            <form action="rooms_available.php" method="POST">
                             <!--This is for select check in date-->
                             <label for="dateInput" class="form-label">Check-in Date</label>
                             <input type="date" class="form-control" id="dateInput">
+                            </form>
                         </div>
-                    </form>
+
                 </div>
 
             </div>
             <div class="col-3">
                 <div class="row">
-                    <form action="userRegister.php" method="POST">
+
                         <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+                            <form action="rooms_available.php" method="POST">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Number Of Person</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3-4</option>
                             </select>
+                            </form>
 
                         </div>
                         <div class="row">
                             <!--This is for select check out date-->
+                            <form action="rooms_available.php" method="POST">
                             <label for="dateInput1" class="form-label">Check-out Date</label>
                             <input type="date" class="form-control" id="dateInput1">
+                            </form>
                         </div>
                         <div class="row" align="right" style="padding-top: 450px">
                             <a href="reservationPayment.html">
-                                <button class="btn btn-secondary" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
+                                <button class="btn btn-secondary" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
                             </a>
                         </div>
-                    </form>
                 </div>
 
             </div>

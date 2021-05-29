@@ -2,6 +2,7 @@
     session_start();
     include("../src/database/connect_db.php");
 
+
     $loginText = "<img src='../src/images/profile.png' width='35px' height='35px'>";
     $loginLink = "";
 
@@ -36,7 +37,7 @@
                                     <a class="nav-link" aria-current="page" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gallery.html">Gallery</a>
+                                    <a class="nav-link" href="gallery.php">Gallery</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="rooms.php">Rooms</a>
@@ -47,9 +48,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.php">Contact</a>
                                 </li>
-                               <!-- <li class="nav-item">
-                                    <a class="nav-link " href="<?php// echo($loginLink); ?>"><?php //echo($loginText); ?></a>
-                                </li> -->
                                 <li class="nav-item">
                                     <div class="dropdown">
                                         <a class="nav-link " href="<?php echo($loginLink); ?>"><?php echo($loginText); ?></a>

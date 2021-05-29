@@ -139,13 +139,10 @@ if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_P
 
     /*$add = "INSERT INTO customers(id, fname, lname, phonenumber, email)
             VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."')";*/
-    $add = "UPDATE customers 
+    $add = $conn -> query("UPDATE customers 
             SET fname = ".$name.", lname = ".$surname.", id = ".$id.", email = ".$email.", phonenumber = ".$phoneNumber."
-            WHERE id = ".$_SESSION['id']."";
+            WHERE id = ".$_SESSION['id']."");
 
-    if($conn -> query($add)===TRUE){
-        //echo "Başarılı";
-    }
 
 
 

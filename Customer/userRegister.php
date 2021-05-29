@@ -28,7 +28,7 @@
 
     <?php
     $confirm = true;
-    $email = $password = $emailError = $passwordError = $passwordMatchError = "";
+    $email = $password = $emailError = $passwordError = $passwordMatchError = $passwordAgain = "";
     $name = $nameError = $surname = $surnameError = $id = $idError = $phoneNumber = $phoneNumberError = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
@@ -36,6 +36,7 @@
             $nameError = "Name is required";
             $confirm = false;
         } else {
+
             $name = input($_POST["name"]);
         }
         if (empty($_POST["surname"])) {
@@ -68,8 +69,14 @@
         } else {
             $password = input($_POST["password"]);
         }
+        if (empty($_POST["passwordAgain"])) {
+            $passwordError = "Password is required";
+            $confirm = false;
+        } else {
+            $passwordAgain = input($_POST["passwordAgain"]);
+        }
 
-        if($_POST["password"] != $_POST["passwordAgain"]){
+        if($password != $passwordAgain){
             $passwordMatchError = "Password doesn't match";
         }
 
@@ -207,7 +214,6 @@
             /*if($conn -> query($add)===TRUE){
                 //echo "Başarılı";
             }*/
-
 
 
     }
