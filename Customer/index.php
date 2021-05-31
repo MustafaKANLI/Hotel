@@ -31,14 +31,33 @@
         $price = $rate = $roomtype = "";
 
         $selectPrice = $conn -> query("SELECT *
-        FROM roomprices");
+        FROM roomprices
+        ORDER BY roomprices.price DESC");
 
-        $priceArr = $selectPrice -> fetch_assoc();
+        $arr = $selectPrice -> fetch_assoc();
 
-       // if(priceArr['price'])
+        $selectRateVipRoom = $conn -> query("SELECT * FROM comments 
+                                                    WHERE roomtype = 'Vip'");
 
-    $roomtype = $priceArr['roomtype'];
+        $selectRateFamilyRoom = $conn -> query("SELECT * FROM comments 
+                                                    WHERE roomtype = 'Family'");
 
+        $selectRateDoubleRoom = $conn -> query("SELECT * FROM comments 
+                                                    WHERE roomtype = 'Family'");
+
+        $selectRateSingleRoom = $conn -> query("SELECT * FROM comments 
+                                                    WHERE roomtype = 'Single'");
+
+
+
+        function avgRate($select){
+            $total = $index = 0;
+            while($rateRoom = $select-> fetch_assoc()){
+                $total += (double) $rateRoom['rate'];
+                $index++;
+            }
+            return ($avg = $total/$index);
+        }
 
 
     ?>
@@ -46,80 +65,125 @@
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
         <div class="row">
-            <div class="col-6" style="padding-top:30px; padding-bottom: 30px">
-                <div class="row">
-                    <div class="col-6">
+            <div class="col-lg" style="padding-top:30px; padding-bottom: 30px; padding-right: 20px; margin-right: 20px">
+                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                    <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-6" align="left">
+                    <div class="col-sm-6" align="left">
                         <div class="row" >
                             <div class="row">
-                                <button type="button" class="btn btn-primary">Vip Room</button>
+                                <button type="button" class="btn btn-primary"> <?php echo $arr['roomtype'] ?> Room</button>
                             </div>
                             <div class="row" style="padding-top: 15px">
                                 <div class="col-7">
-                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                    <p> <?php
+                                        echo $arr['price']
+                                        ?> </p>
                                 </div>
                                 <div class="col">
-                                    <p> <?php echo $rate ?> </p>
+                                    <p> <?php echo avgRate($selectRateVipRoom); ?> </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-6">
+                <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                    <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-6" align="left">
+                    <div class="col-sm-6" align="left">
                         <div class="row" >
                             <div class="row">
-                                <button type="button" class="btn btn-primary">Vip Room</button>
+                                <button type="button" class="btn btn-primary"><?php
+                                    $arr = $selectPrice -> fetch_assoc();
+                                    echo $arr['roomtype']
+                                    ?> Room</button>
                             </div>
                             <div class="row" style="padding-top: 15px">
                                 <div class="col-7">
-                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                    <p> <?php
+                                        //$arr = $selectPrice -> fetch_assoc();
+                                        echo $arr['price']
+                                        ?> </p>
                                 </div>
                                 <div class="col">
-                                    <p> <?php echo $rate ?> </p>
+                                    <p> <?php echo avgRate($selectRateFamilyRoom); ?> </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-6">
+                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                    <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-6" align="left">
+                    <div class="col-sm-6" align="left">
                         <div class="row" >
                             <div class="row">
-                                <button type="button" class="btn btn-primary">Vip Room</button>
+                                <button type="button" class="btn btn-primary"><?php
+                                    $arr = $selectPrice -> fetch_assoc();
+                                    echo $arr['roomtype']
+                                    ?> Room</button>
                             </div>
                             <div class="row" style="padding-top: 15px">
                                 <div class="col-7">
-                                    <p> <?php echo $priceArr['price'] ?> </p>
+                                    <p> <?php
+                                        //$arr = $selectPrice -> fetch_assoc();
+                                        echo $arr['price']
+                                        ?> </p>
                                 </div>
                                 <div class="col">
-                                    <p> <?php echo $rate ?> </p>
+                                    <p> <?php echo avgRate($selectRateDoubleRoom); ?> </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
+                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                    </div>
+
+                    <div class="col-sm-6" align="left">
+                        <div class="row" >
+                            <div class="row">
+                                <button type="button" class="btn btn-primary"><?php
+                                    $arr = $selectPrice -> fetch_assoc();
+                                    echo $arr['roomtype']
+                                    ?> Room</button>
+                            </div>
+                            <div class="row" style="padding-top: 15px">
+                                <div class="col-7">
+                                    <p> <?php
+                                        //$arr = $selectPrice -> fetch_assoc();
+                                        echo $arr['price']
+                                        ?> </p>
+                                </div>
+                                <div class="col">
+                                    <p> <?php echo avgRate($selectRateSingleRoom); ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
 
             </div>
 
-            <div class="col-3">
-                <div class="row">
 
-                        <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+            <div class="col-md-3">
+                <div class="row" style="padding-top:30px">
+
+                        <div class="row" style="margin-bottom: 150px">
                             <form action="rooms_available.php" method="POST">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Room Types</option>
@@ -131,7 +195,7 @@
                             </form>
 
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-bottom: 150px">
                             <form action="rooms_available.php" method="POST">
                             <!--This is for select check in date-->
                             <label for="dateInput" class="form-label">Check-in Date</label>
@@ -142,10 +206,10 @@
                 </div>
 
             </div>
-            <div class="col-3">
-                <div class="row">
+            <div class="col-md-3">
+                <div class="row" style="padding-top:30px">
 
-                        <div class="row" style="padding-top: 30px ;margin-bottom: 140px">
+                        <div class="row" style="margin-bottom: 150px">
                             <form action="rooms_available.php" method="POST">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Number Of Person</option>
@@ -156,7 +220,7 @@
                             </form>
 
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-bottom: 150px">
                             <!--This is for select check out date-->
                             <form action="rooms_available.php" method="POST">
                             <label for="dateInput1" class="form-label">Check-out Date</label>
@@ -164,7 +228,7 @@
                             </form>
                         </div>
                         <div class="row" align="right" style="padding-top: 450px">
-                            <a href="reservationPayment.html">
+                            <a href="rooms_available.php">
                                 <button class="btn btn-secondary" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
                             </a>
                         </div>

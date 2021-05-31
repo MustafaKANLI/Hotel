@@ -17,22 +17,22 @@
 ?>
             <link rel="stylesheet" href="../Manager/profileHoverDropdown.css">
 
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div class="container" height="90px">
                     <a class="navbar-brand" href="index.php">
                         <img src="../src/images/logo.png" alt="" width=50 height="30">
                         Paradis Hotel
 
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-end"   id="navbar">
 
-                        <div class="col" align="left">
-                            <ul class="nav justify-content-end">
+
+                            <ul class="navbar-nav" >
                                 <li class="nav-item">
                                     <a class="nav-link" aria-current="page" href="index.php">Home</a>
                                 </li>
@@ -59,7 +59,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+
                     </div>
 
                 </div>
