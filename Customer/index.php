@@ -66,12 +66,12 @@
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
         <div class="row">
             <div class="col-lg" style="padding-top:30px; padding-bottom: 30px; padding-right: 20px; margin-right: 20px">
-                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-sm-6" align="left">
+                    <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
                         <div class="row" >
                             <div class="row">
                                 <button type="button" class="btn btn-primary"> <?php echo $arr['roomtype'] ?> Room</button>
@@ -80,7 +80,7 @@
                                 <div class="col-7">
                                     <p> <?php
                                         echo $arr['price']
-                                        ?> </p>
+                                        ?> USD/day</p>
                                 </div>
                                 <div class="col">
                                     <p> <?php echo avgRate($selectRateVipRoom); ?> </p>
@@ -95,7 +95,7 @@
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-sm-6" align="left">
+                    <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
                         <div class="row" >
                             <div class="row">
                                 <button type="button" class="btn btn-primary"><?php
@@ -108,7 +108,7 @@
                                     <p> <?php
                                         //$arr = $selectPrice -> fetch_assoc();
                                         echo $arr['price']
-                                        ?> </p>
+                                        ?> USD/day</p>
                                 </div>
                                 <div class="col">
                                     <p> <?php echo avgRate($selectRateFamilyRoom); ?> </p>
@@ -118,12 +118,12 @@
                     </div>
 
                 </div>
-                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-sm-6" align="left">
+                    <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
                         <div class="row" >
                             <div class="row">
                                 <button type="button" class="btn btn-primary"><?php
@@ -136,7 +136,7 @@
                                     <p> <?php
                                         //$arr = $selectPrice -> fetch_assoc();
                                         echo $arr['price']
-                                        ?> </p>
+                                        ?> USD/day</p>
                                 </div>
                                 <div class="col">
                                     <p> <?php echo avgRate($selectRateDoubleRoom); ?> </p>
@@ -146,12 +146,12 @@
                     </div>
 
                 </div>
-                <div class="row" style="box-shadow: 5px 5px 5px 5px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
+                <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
                         <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
                     </div>
 
-                    <div class="col-sm-6" align="left">
+                    <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
                         <div class="row" >
                             <div class="row">
                                 <button type="button" class="btn btn-primary"><?php
@@ -164,7 +164,7 @@
                                     <p> <?php
                                         //$arr = $selectPrice -> fetch_assoc();
                                         echo $arr['price']
-                                        ?> </p>
+                                        ?> USD/day</p>
                                 </div>
                                 <div class="col">
                                     <p> <?php echo avgRate($selectRateSingleRoom); ?> </p>
