@@ -31,55 +31,27 @@
             <div class="col-4" align="center">
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img class="responsive" src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
-                    </a>
-                </div>
-
-            </div>
-            <div class="col-4" align="center">
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
 
@@ -87,27 +59,55 @@
             <div class="col-4" align="center">
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row align-items-center" style="padding:10px">
                     <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="350" height="225">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-4" align="center">
+                <div class="row align-items-center" style="padding:10px">
+                    <a href="galleryOnClicked.php">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row align-items-center" style="padding:10px">
+                    <a href="galleryOnClicked.php">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row align-items-center" style="padding:10px">
+                    <a href="galleryOnClicked.php">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row align-items-center" style="padding:10px">
+                    <a href="galleryOnClicked.php">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row align-items-center" style="padding:10px">
+                    <a href="galleryOnClicked.php">
+                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
                     </a>
                 </div>
 

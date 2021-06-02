@@ -27,7 +27,7 @@
     </div>
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
         <div class="row">
-            <div class="col-8" style="padding-right: 20px">
+            <div class="col-lg-8" style="padding-right: 20px">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -69,60 +69,60 @@
                 </div>
             </div>
 
-            <div class="col-4" style="overflow: auto; max-height: 530px; border: 1px solid">
+            <div class="col-lg-4" style="overflow: auto; max-height: 530px; border: 1px solid">
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
                 <div class="row" style="padding:10px">
                     <a href="#">
-                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." height="140">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="100%" height="100%">
                     </a>
                 </div>
 
@@ -135,13 +135,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8" style="padding:10px; border: 1px solid; max-height: 300px; overflow-y:auto; overflow-x:hidden">
+            <div class="col-lg-8" style="padding:10px; border: 1px solid; max-height: 300px; overflow-y:auto; overflow-x:hidden">
                 <h5>Reviews</h5>
                 <div class="row" style="border: 1px solid; padding-left: 15px">
-                    <div class="col-2" style="padding-top: 10px">
+                    <div class="col-lg-2" style="padding-top: 10px">
                         <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
                     </div>
-                    <div class="col-6" style="padding-top:10px">
+                    <div class="col-lg-6" style="padding-top:10px">
                         <div class="row">
                             <p>
                                 This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
@@ -221,7 +221,7 @@
 
             </div>
 
-            <div class="col-3" style="border: 1px solid; max-height: 300px; margin-left: 15px">
+            <div class="col-lg-3" style="border: 1px solid; max-height: 300px; ">
                 <h5>Make an review</h5>
                 <div class="row">
                     <link rel="stylesheet" href="rate.css">

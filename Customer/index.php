@@ -68,7 +68,7 @@
             <div class="col-lg" style="padding-top:30px; padding-bottom: 30px; padding-right: 20px; margin-right: 20px">
                 <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
-                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                        <img class="rounded responsive" src="../src/images/Vip-room.jpg" width="100%" height="100%" />
                     </div>
 
                     <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
@@ -92,7 +92,7 @@
                 </div>
                 <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
-                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="100%" height="100%" />
                     </div>
 
                     <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
-                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="100%" height="100%" />
                     </div>
 
                     <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-top: 50px; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
                     <div class="col-sm-6">
-                        <img class="rounded" src="../src/images/Vip-room.jpg" width="260" height="180" />
+                        <img class="rounded" src="../src/images/Vip-room.jpg" width="100%" height="100%" />
                     </div>
 
                     <div class="col-sm" align="left" style="padding-top: 10px; margin-left: 10px">

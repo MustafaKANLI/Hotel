@@ -33,7 +33,22 @@ include("../src/database/connect_db.php");
 
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
-
+        <div class="row">
+            <div class="col-sm-4" style="padding-left: 20px; padding-right:20px">
+                <img class="responsive" width="80%" height="80%" src="../src/images/Vip-room.jpg">
+            </div>
+            <div class="col-sm-8">
+                <div class="col-lg-4">
+                    <img class="responsive" width="80px" height="16px" src="../src/images/four-eight-stars.png">
+                </div>
+                <div class="col-lg-4">
+                    <p>Door Number: 402</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Vip Room</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="container" style="padding-top:30px; padding-bottom: 10px"></div>
