@@ -37,9 +37,9 @@
                         <a href="profile_accountDetails.php" class="list-group-item list-group-item-action">
                             Account Details
                         </a>
-                        <a href="reservations.html" class="list-group-item list-group-item-action">Reservations</a>
+                        <a href="reservations.php" class="list-group-item list-group-item-action">Reservations</a>
                         <a href="profile_changePassword.php" class="list-group-item list-group-item-action active">Change Password</a>
-                        <a href="profile_reviews.html" class="list-group-item list-group-item-action">Reviews</a>
+                        <a href="profile_reviews.php" class="list-group-item list-group-item-action">Reviews</a>
 
                     </div>
                 </div>

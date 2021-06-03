@@ -52,7 +52,7 @@
                                     <a class="nav-link" href="rooms.php">Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="reservations.html">Reservations</a>
+                                    <a class="nav-link" href="reservations.php">Reservations</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.php">Contact</a>

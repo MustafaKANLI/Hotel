@@ -33,6 +33,11 @@
         $user = $selectSql->fetch_assoc();
 
     ?>
+    <script>
+        function submitForm(){
+            document.getElementById("update").submit();
+        }
+    </script>
 
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
@@ -44,15 +49,15 @@
                         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                             Account Details
                         </a>
-                        <a href="reservations.html" class="list-group-item list-group-item-action">Reservations</a>
+                        <a href="reservations.php" class="list-group-item list-group-item-action">Reservations</a>
                         <a href="profile_changePassword.php" class="list-group-item list-group-item-action">Change Password</a>
-                        <a href="profile_reviews.html" class="list-group-item list-group-item-action">Reviews</a>
+                        <a href="profile_reviews.php" class="list-group-item list-group-item-action">Reviews</a>
 
                     </div>
                 </div>
 
                 <div class="col-8">
-                    <form action="profile_accountDetails.php" method="POST">
+                    <form action="profile_accountDetails.php" id="update" method="POST">
                     <h5>Name</h5>
                     <div class="form-floating mb-3">
                         <input type="text" name="name" class="form-control" id="nameInput" value="<?php echo($_SESSION['name'])?>">
@@ -80,12 +85,14 @@
                         <label for="mailInput">Email address</label>
                     </div>
 
+
                     <div align="right" style="margin-top: 30px">
                         <a >
-                            <button type="button" class="btn btn-primary btn-lg" style="padding-left: 30px; padding-right: 30px;
+                            <button type="button"  class="btn btn-primary btn-lg" style="padding-left: 30px; padding-right: 30px;
                             font-size: 22px" data-bs-toggle="modal" data-bs-target="#bookingAlert">Save Changes</button>
                         </a>
                     </div>
+
                     <!-- Modal -->
                     <div class="modal fade" id="bookingAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -101,13 +108,14 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                                    <button  onClick="submitForm()" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     </form>
+
                 </div>
 
             </div>
@@ -121,13 +129,14 @@
             <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
         </footer>
     </div>
+
 </div>
 </body>
 </html>
 
 <?php
-include("../src/database/connect_db.php");
-if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"])){
+//include("../src/database/connect_db.php");
+if(isset($_POST["name"], $_POST["surname"], $_POST["id"], $_POST["phoneNumber"], $_POST["email"])){
 
     $name = $_POST["name"];
     $surname = $_POST["surname"];
@@ -135,14 +144,11 @@ if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_P
     $phoneNumber = $_POST["phoneNumber"];
     $email = $_POST["email"];
 
-    //$password = password_hash($password, PASSWORD_DEFAULT);
 
-    /*$add = "INSERT INTO customers(id, fname, lname, phonenumber, email)
-            VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."')";*/
     $add = $conn -> query("UPDATE customers 
-            SET fname = ".$name.", lname = ".$surname.", id = ".$id.", email = ".$email.", phonenumber = ".$phoneNumber."
-            WHERE id = ".$_SESSION['id']."");
-
+            SET fname = '".$name."', lname = '".$surname."', id = '".$id."', email = '".$email."', phonenumber = '".$phoneNumber."'
+            WHERE id = '".$_SESSION['id']."'");
+    echo($conn -> error);
 
 
 

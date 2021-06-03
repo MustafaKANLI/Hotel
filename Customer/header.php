@@ -9,6 +9,7 @@
     if(isset($_SESSION["id"])) {
         $loginText = $_SESSION['name'];
         $loginLink = "profile_accountDetails.php";
+
     }
     else{
         $loginText = '<img src="../src/images/profile.png" width="35px" height="35px">';
@@ -33,7 +34,7 @@
 
 
                             <ul class="navbar-nav" >
-                                <li class="nav-item">
+                                <li class="nav-item ">
                                     <a class="nav-link" aria-current="page" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item">
@@ -43,7 +44,7 @@
                                     <a class="nav-link" href="rooms.php">Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="reservations.html">Reservations</a>
+                                    <a class="nav-link" href="reservations.php">Reservations</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.php">Contact</a>

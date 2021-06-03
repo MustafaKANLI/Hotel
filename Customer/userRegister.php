@@ -146,19 +146,29 @@
                         <div class="form-floating mb-3">
                             <input name="password" type="password" class="form-control" id="passwordInput" placeholder="password">
                             <label for="passwordInput">Password</label>
-                            <?php
-                            echo $passwordError;
-                            echo $passwordMatchError;
-                            ?>
+                            <p>
+                                <?php
+                                echo $passwordError;
+                                ?>
+                                <br>
+                                <?php
+                                echo $passwordMatchError;
+                                ?>
+                            </p>
                         </div>
                         <h5>Password (Again)</h5>
                         <div class="form-floating mb-3">
                             <input name="passwordAgain" type="password" class="form-control" id="passwordInput2" placeholder="password">
                             <label for="passwordInput2">Password</label>
+                            <p>
                             <?php
                             echo $passwordError;
+                            ?>
+                            <br>
+                            <?php
                             echo $passwordMatchError;
                             ?>
+                            </p>
                         </div>
                         <p><small>
                                 - At least 8 characters - the more characters better<br>
@@ -193,28 +203,30 @@
 
 <?php
     include("../src/database/connect_db.php");
-    if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"],
-        $_POST["password"],$_POST["passwordAgain"])){
-
-        $name = $_POST["name"];
-        $surname = $_POST["surname"];
-        $id = $_POST["id"];
-        $phoneNumber = $_POST["phoneNumber"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $password = md5($password);
-        $passwordAgain = $_POST["passwordAgain"];
-
-        //$password = password_hash($password, PASSWORD_DEFAULT);
-
-        //require('query.php');
-        $add = $conn -> query("INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
-            VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')");
-
-            /*if($conn -> query($add)===TRUE){
-                //echo "Başarılı";
-            }*/
+    if(!empty($_POST["name"] and $_POST["surname"] and $_POST["id"] and $_POST["phoneNumber"] and$_POST["email"] and
+        $_POST["password"] and $_POST["passwordAgain"])){
 
 
+        if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"],
+            $_POST["password"],$_POST["passwordAgain"])){
+
+            $name = $_POST["name"];
+            $surname = $_POST["surname"];
+            $id = $_POST["id"];
+            $phoneNumber = $_POST["phoneNumber"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $password = md5($password);
+            $passwordAgain = $_POST["passwordAgain"];
+
+
+            $add = $conn -> query("INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
+                VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')");
+
+                /*if($conn -> query($add)===TRUE){
+                    //echo "Başarılı";
+                }*/
+
+        }
     }
 ?>
