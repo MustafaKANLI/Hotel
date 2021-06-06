@@ -32,23 +32,61 @@ include("../src/database/connect_db.php");
     </div>
 
     <!--This is for content-->
-    <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
-        <div class="row">
+    <div class="container" style="padding: 40px; border: 1px solid; overflow: auto; max-height: 800px; background-color: #FFFFFF">
+
+        <?php
+
+        $_SESSION['checkIn'] = $_POST['checkIn'];
+        $_SESSION['checkOut'] = $_POST['checkOut'];
+        $_SESSION['roomtype'] = $_POST['roomType'];
+        $_SESSION['numberOfPerson'] = $_POST['numberOfPerson'];
+
+/*
+        echo $_SESSION['roomtype'];
+        echo $_SESSION['numberOfPerson'];
+        echo $_SESSION['checkIn'];
+        echo $_SESSION['checkIn'];
+*/
+        $selectSql = "SELECT * FROM rooms\n"
+            . "WHERE status = 'Empty' AND roomtype = '".$_POST['roomType']."'";
+        $resultSql= $conn->query($selectSql);
+
+
+        while($room = $resultSql->fetch_assoc()){
+
+        ?>
+        <div class="row align-items-center" style="box-shadow: 3px 3px 4px 4px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px; height: 200px">
             <div class="col-sm-4" style="padding-left: 20px; padding-right:20px">
-                <img class="responsive" width="80%" height="80%" src="../src/images/Vip-room.jpg">
+                <img class="responsive" width="60%" height="60%" src="../src/images/Vip-room.jpg">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-5">
                 <div class="col-lg-4">
-                    <img class="responsive" width="80px" height="16px" src="../src/images/four-eight-stars.png">
+                    <img class="responsive" width="120px" height="24px" src="../src/images/four-eight-stars.png">
                 </div>
                 <div class="col-lg-4">
-                    <p>Door Number: 402</p>
+                    <p>Door Number: <?php echo $room['doornumber'] ?></p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Vip Room</p>
+                    <p><?php echo $room['roomtype'] ?> Room</p>
                 </div>
+            </div>
+            <div class="col-sm-3 ">
+                <form action="reservationPayment.php" method="POST">
+                    <input type="hidden" id="doorNumber" name="doorNumber" value="<?php echo $room['doornumber'] ?>">
+                    <a href="reservationPayment.php">
+                        <button class="btn btn-secondary btn-sm" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Search Rooms</button>
+                    </a>
+                </form>
+
+
+
             </div>
         </div>
+
+        <?php
+        }
+        ?>
+
     </div>
 
     <div class="container" style="padding-top:30px; padding-bottom: 10px"></div>

@@ -17,6 +17,11 @@
         <header class="header">
             <?php
             require ("header.php");
+
+            if(!isset($_SESSION['id'])){ //if user didn't login, he/she can't see the this page
+                header("Location:login.php");
+                exit();
+            }
             ?>
         </header>
 
@@ -73,7 +78,7 @@
                             <p>Ended</p>
                         </div>
                         <div class="col-4" align="center" style="padding-top: 85px">
-                            <a href="reservations_details.html">
+                            <a href="reservations_details.php">
                                 <button class="btn btn-primary">See the Details</button>
                             </a>
                         </div>
@@ -92,7 +97,7 @@
                             <p>Ended</p>
                         </div>
                         <div class="col-4" align="center" style="padding-top: 85px">
-                            <a href="reservations_details.html">
+                            <a href="reservations_details.php">
                                 <button class="btn btn-primary">See the Details</button>
                             </a>
                         </div>

@@ -12,7 +12,7 @@
 
     }
     else{
-        $loginText = '<img src="../src/images/profile.png" width="35px" height="35px">';
+        //$loginText = '<img src="../src/images/profile.png" width="35px" height="35px">';
         $loginLink = "login.php";
     }
 ?>

@@ -26,10 +26,66 @@
 
     </div>
 
+    <script>
+        function submitForm(){
+            document.getElementById("update").submit();
+        }
+    </script>
+
+
+    <?php
+    //include("../src/database/connect_db.php");
+    $wrongPassword = $passwordDoesntMatch = $generalErrorOld = $generalErrorNew = $generalErrorNewAgain = "";
+
+    if(isset($_POST["old_password"],$_POST["new_password"],$_POST["new_passwordAgain"])){
+
+        $oldPassword = input(md5($_POST["old_password"]));
+        $newPassword = input(md5($_POST["new_password"]));
+        $newPasswordAgain = input(md5($_POST["new_passwordAgain"]));
+
+        $selectSql = $conn -> query("SELECT * FROM `customers` 
+                                        WHERE   id = '".$_SESSION['id']."'");
+        $user = $selectSql->fetch_assoc();
+
+        if($oldPassword == $user['password'] and $newPassword == $newPasswordAgain){
+            $update = $conn -> query("UPDATE customers
+                   SET password = '".$newPassword."'
+                   WHERE id = '".$_SESSION['id']."'");
+
+        }
+
+        if(!isset($oldPassword)){
+            $generalErrorOld = "This section can't be empty!!!!";
+        }
+        if(!isset($newPassword)){
+            $generalErrorNew = "This section can't be empty!!!!";
+        }
+        if(!isset($newPasswordAgain)){
+            $generalErrorNewAgain = "This section can't be empty!!!!";
+        }
+        if($oldPassword != $user['password']){
+            $wrongPassword = "Your password is wrong!!!!";
+        }
+        if($newPassword != $newPasswordAgain){
+            $passwordDoesntMatch = "Password doesn't match!!!!";
+        }
+
+
+
+    }
+
+    function input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    ?>
+
     <!--This is for content-->
-    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
+    <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px;  max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
-            <form action="profile_changePassword.php" method="POST">
+            <form action="profile_changePassword.php" id="update" method="POST">
             <h2>Change Password</h2>
             <div class="row" align="left" style="margin-top:40px">
                 <div class="col-4">
@@ -48,17 +104,38 @@
                     <div class="form-floating mb-3">
                         <input type="password" name="old_password" class="form-control" id="passwordInput" placeholder="password">
                         <label for="passwordInput">Password</label>
+                        <?php
+                        echo $generalErrorOld;
+                        ?>
+                        <br>
+                        <?php
+                        echo $wrongPassword;
+                        ?>
                     </div>
                     <h5>New Password</h5>
                     <div class="form-floating mb-3">
                         <input type="password" name="new_password" class="form-control" id="passwordInput" placeholder="password">
                         <label for="passwordInput">Password</label>
+                        <?php
+                        echo $generalErrorNew;
+                        ?>
+                        <br>
+                        <?php
+                        echo $passwordDoesntMatch;
+                        ?>
                     </div>
 
                     <h5>New Password (Again)</h5>
                     <div class="form-floating mb-3">
                         <input type="password" name="new_passwordAgain" class="form-control" id="passwordInput" placeholder="password">
                         <label for="passwordInput">Password</label>
+                        <?php
+                        echo $generalErrorNewAgain;
+                        ?>
+                        <br>
+                        <?php
+                        echo $passwordDoesntMatch;
+                        ?>
                     </div>
                     <pre><small>
 - At least 8 characters - the more characters better
@@ -90,7 +167,7 @@ problems in web browsers
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit"  class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                                    <button onClick="submitForm()"  class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
                                 </div>
                             </div>
                         </div>
@@ -112,26 +189,5 @@ problems in web browsers
 </div>
 </body>
 </html>
-<?php
-    include("../src/database/connect_db.php");
-    if(isset($_POST["old_password"],$_POST["new_password"],$_POST["new_passwordAgain"],$_POST["phoneNumber"],$_POST["email"],
-        $_POST["password"],$_POST["passwordAgain"])){
-
-        $oldPassword = $_POST["old_password"];
-        $newPassword = $_POST["new_password"];
-        $newPasswordAgain = $_POST["new_passwordAgain"];
-
-        //$password = password_hash($password, PASSWORD_DEFAULT);
-
-        $update = "UPDATE customers
-                   SET password = '".$newPassword."'
-                   WHERE customers.id = '".$_SESSION['id']."'";
-
-        if($conn -> query($update)===TRUE){
-            //echo "Başarılı";
-        }
 
 
-
-    }
-?>

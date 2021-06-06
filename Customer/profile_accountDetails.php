@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                        Your informations will be changed!!!!
+                                        Changes is showed after the re-login and your informations will be changed !!!
                                     </p>
                                 </div>
                                 <div class="modal-footer">

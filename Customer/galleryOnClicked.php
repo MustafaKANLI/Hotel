@@ -223,9 +223,10 @@
 
             <div class="col-lg-3" style="border: 1px solid; max-height: 300px; ">
                 <h5>Make an review</h5>
+                <form action="<?php // echo $_SERVER["PHP_SELF"]?>" method="POST">
                 <div class="row">
                     <link rel="stylesheet" href="rate.css">
-                    <div class="rate">
+                    <div class="rate" name="rate">
                         <input type="radio" id="star5" name="rate" value="5" />
                         <label for="star5" title="5 stars">5 stars</label>
                         <input type="radio" id="star4" name="rate" value="4" />
@@ -240,13 +241,17 @@
                 </div>
                 <div class="row" style="padding-top:30px">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea class="form-control" name="text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Comment</label>
                     </div>
                 </div>
                 <div class="row" style="padding-left: 80px; padding-right: 15px; padding-top: 30px; padding-bottom:15px">
-                    <button type="button" class="btn btn-primary">Make Review</button>
+                    <?php
+                    $date = date("Y-m-d h:i:sa");
+                    ?>
+                    <button type="submit" class="btn btn-primary">Make Review</button>
                 </div>
+                </form>
             </div>
         </div>
 
@@ -266,3 +271,13 @@
 
 </body>
 </html>
+
+<?php
+if($_SESSION['id'] != ""){
+
+    $add = $conn -> query("INSERT INTO comments(`customerid`, `datetime`, `roomtype`, `text`, `rate`) 
+                VALUES ('".$_SESSION['id']."','".$date."','".$_SESSION['name']."','".$_POST["text"]."','".$_POST["rate"]."')");
+
+}
+
+?>

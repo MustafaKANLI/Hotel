@@ -64,6 +64,7 @@
 
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
+        <form action="rooms_available.php" method="POST">
         <div class="row">
             <div class="col-lg" style="padding-top:30px; padding-bottom: 30px; padding-right: 20px; margin-right: 20px">
                 <div class="row" style="box-shadow: 3px 3px 4px 4px grey; margin-bottom: 50px; padding-top: 10px; padding-bottom: 10px">
@@ -184,23 +185,23 @@
                 <div class="row" style="padding-top:30px">
 
                         <div class="row" style="margin-bottom: 150px">
-                            <form action="rooms_available.php" method="POST">
-                            <select class="form-select" aria-label="Default select example">
+
+                            <select class="form-select" name="roomType" aria-label="Default select example">
                                 <option selected>Select Room Types</option>
-                                <option value="1">Vip Room</option>
-                                <option value="2">Family Room</option>
-                                <option value="3">Double Room</option>
-                                <option value="3">Single Room</option>
+                                <option value="Vip">Vip Room</option>
+                                <option value="Family">Family Room</option>
+                                <option value="Double">Double Room</option>
+                                <option value="Single">Single Room</option>
                             </select>
-                            </form>
+
 
                         </div>
                         <div class="row" style="margin-bottom: 150px">
-                            <form action="rooms_available.php" method="POST">
+
                             <!--This is for select check in date-->
                             <label for="dateInput" class="form-label">Check-in Date</label>
-                            <input type="date" class="form-control" id="dateInput">
-                            </form>
+                            <input type="date" name="checkIn" class="form-control" id="dateInput">
+
                         </div>
 
                 </div>
@@ -210,33 +211,33 @@
                 <div class="row" style="padding-top:30px">
 
                         <div class="row" style="margin-bottom: 150px">
-                            <form action="rooms_available.php" method="POST">
-                            <select class="form-select" aria-label="Default select example">
+
+                            <select class="form-select" name="numberOfPerson" aria-label="Default select example">
                                 <option selected>Select Number Of Person</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
-                                <option value="3">3-4</option>
+                                <option value="3-4">3-4</option>
                             </select>
-                            </form>
+
 
                         </div>
                         <div class="row" style="margin-bottom: 150px">
                             <!--This is for select check out date-->
-                            <form action="rooms_available.php" method="POST">
+
                             <label for="dateInput1" class="form-label">Check-out Date</label>
-                            <input type="date" class="form-control" id="dateInput1">
-                            </form>
+                            <input type="date" name="checkOut" class="form-control" id="dateInput1">
+
                         </div>
                         <div class="row" align="right" style="padding-top: 450px">
                             <a href="rooms_available.php">
-                                <button class="btn btn-secondary" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
+                                <button class="btn btn-secondary" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Search Rooms</button>
                             </a>
                         </div>
                 </div>
 
             </div>
         </div>
-
+        </form>
     </div>
 
     <div class="container" style="padding-top:30px; padding-bottom: 10px"></div>

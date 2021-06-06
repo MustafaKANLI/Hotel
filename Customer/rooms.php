@@ -756,7 +756,7 @@
 
                     ?>
                     <div class="card-body">
-                        <div class="col" style="max-height: 400px; overflow: auto; overflow-x: hidden">
+                        <div class="col" style="max-height: 400px; overflow: auto; overflow-x: hidden; padding-left: 15px; padding-right: 15px">
 
                             <?php $selectSingle = $resultSingle->fetch_assoc();//Firstly show one comment  ?>
                             <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px; margin-bottom:10px">

@@ -67,13 +67,13 @@
             $passwordError = "Password is required";
             $confirm = false;
         } else {
-            $password = input($_POST["password"]);
+            $password = input(md5($_POST["password"]));
         }
         if (empty($_POST["passwordAgain"])) {
             $passwordError = "Password is required";
             $confirm = false;
         } else {
-            $passwordAgain = input($_POST["passwordAgain"]);
+            $passwordAgain = input(md5($_POST["passwordAgain"]));
         }
 
         if($password != $passwordAgain){
@@ -202,31 +202,15 @@
 </html>
 
 <?php
-    include("../src/database/connect_db.php");
-    if(!empty($_POST["name"] and $_POST["surname"] and $_POST["id"] and $_POST["phoneNumber"] and$_POST["email"] and
-        $_POST["password"] and $_POST["passwordAgain"])){
+    //include("../src/database/connect_db.php");
+    if($email != "" and $name != "" and $surname != "" and $id != "" and $password != "" and $passwordAgain != "" and $password == $passwordAgain){
 
-
-        if(isset($_POST["name"],$_POST["surname"],$_POST["id"],$_POST["phoneNumber"],$_POST["email"],
-            $_POST["password"],$_POST["passwordAgain"])){
-
-            $name = $_POST["name"];
-            $surname = $_POST["surname"];
-            $id = $_POST["id"];
-            $phoneNumber = $_POST["phoneNumber"];
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            $password = md5($password);
-            $passwordAgain = $_POST["passwordAgain"];
-
-
-            $add = $conn -> query("INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
+        $add = $conn -> query("INSERT INTO customers(id, fname, lname, phonenumber, email, password) 
                 VALUES ('".$id."','".$name."','".$surname."','".$phoneNumber."','".$email."','".$password."')");
 
-                /*if($conn -> query($add)===TRUE){
-                    //echo "Başarılı";
-                }*/
+        /*if($conn -> query($add)===TRUE){
+             //echo "Başarılı";
+        }*/
 
-        }
     }
 ?>

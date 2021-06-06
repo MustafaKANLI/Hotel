@@ -18,6 +18,11 @@
                 <header class="header">
                     <?php
                         require ("header.php");
+
+                    if(isset($_SESSION['id'])){
+                        header("Location:profile_accountDetails.php");
+                        exit();
+                    }
                     ?>
                 </header>
 
@@ -26,7 +31,7 @@
             //session_start();
             include("../src/database/connect_db.php");
 
-            $email = $password = $emailError = $passwordError = $wrongPassOrEmail = "";
+            $email = $password = $emailError = $passwordError = $wrongPassOrEmail = $userNotFound = "";
 
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $email = input($_POST['email']);
@@ -36,13 +41,13 @@
 
                 if (empty($_POST["email"])) {
                     $emailError = "Email is required";
-                    $confirm = false;
+                    //$confirm = false;
                 } else {
                     $email = input($_POST["email"]);
                 }
                 if (empty($_POST["password"])) {
                     $passwordError = "Password is required";
-                    $confirm = false;
+                    //$confirm = false;
                 } else {
                     $password = input($_POST["password"]);
                     $password = md5($password);
@@ -69,6 +74,9 @@
                     }
 
                 }
+                else{
+                    $userNotFound = "User not found";
+                }
             }
 
             function input($data) {
@@ -90,6 +98,7 @@
                     <img src="../src/images/profile_black.png" width="108px" height="108px">
 
                     <div class="row" align="left" style="margin-top:40px">
+                        <?php echo $userNotFound; ?>
                         <form action="<?php // echo $_SERVER["PHP_SELF"]?>" method="POST">
                             <h5>E-Mail</h5>
                             <div class="form-floating mb-3">
