@@ -6,10 +6,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Booked Rooms</title>
+    <title>Reservations</title>
 </head>
 <body style="background-color: #F4F6FC">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?Single=Material+Icons" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
@@ -88,19 +88,19 @@
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="bookings.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="bookings.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-calendar-check"></i>    Bookings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booked.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                    <a href="booked.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-clipboard-check"></i>    Booked Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="emptyRooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="emptyRooms.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-house-door"></i>    Empty Rooms</a>
                                 </li>
                                 <li class="nav-item" onClick="subMenuAction()">
-                                    <a href="#" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="#" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-gear"></i>  <span>Hotel Manager</span>
 
                                         <span style="padding-left: 3.60rem" onClick="subMenuIconAction()">
@@ -118,7 +118,7 @@
                                                 <i class="bi bi-person"></i>    Customers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="reservations.php" class="list-group-item list-group-item-action bg-dark" style="color:white" style="color:white">
+                                            <a href="reservations.php" class="list-group-item list-group-item-action bg-primary" style="color:white" style="color:white">
                                                 <i class="bi bi-receipt"></i>    Reservations</a>
                                         </li>
                                     </ul>
@@ -143,62 +143,17 @@
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
 
-                <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
+                <div class="col-4" style="border: 1px solid; margin-right:20px; background-color: white; width:20rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
                     <div class="row">
                         <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
+                            <img src="../src/images/receipt.svg" width="50" height="50">
                         </div>
                         <div class="col-10" align="center">
                             <div class="row">
-                                <h5>Total Rooms</h5>
+                                <h5>Total Reservations</h5>
                             </div>
                             <div class="row">
-                                <h4>120</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; margin-right:20px;  background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booked Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>30</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; margin-right:20px; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booking Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>20</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Empty Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>70</h4>
+                                <h4>1550</h4>
                             </div>
                         </div>
                     </div>
@@ -208,14 +163,28 @@
             </div>
 
             <!-- This is for Table -->
+            <?php
+            $date = date("Y-m-d");
+            include("../src/database/connect_db.php");
+
+            $selectSql = "SELECT * FROM reservations
+                INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
+                INNER JOIN customers ON customers.id = reservations.customerid
+               
+                ORDER BY reservations.doornumber ASC
+                ";
+            $resultSql= $conn->query($selectSql);
+
+            ?>
+            <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">
-                <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 300px; background-color: white">
+                <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Room Id</th>
                             <th scope="col">Room Type</th>
-                            <th scope="col">Customer Id</th>
+                            <th scope="col">Door Number</th>
+                            <th scope="col">Customer ID</th>
                             <th scope="col">Customer Name</th>
                             <th scope="col">Customer Surname</th>
                             <th scope="col">Check-in Date</th>
@@ -224,90 +193,100 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.04.2021</td>
-                            <td>18.04.2021</td>
-                            <td>2500</td>
-                        </tr>
+                        <?php
+                        while($room = $resultSql->fetch_assoc()){
+                            ?>
+                            <tr>
+                                <td><?php echo $room["roomtype"]?> Room</td>
+                                <td><?php echo $room["doornumber"]?></td>
+                                <td><?php echo $room["customerid"]?></td>
+                                <td><?php echo $room["fname"]?></td>
+                                <td><?php echo $room["lname"]?></td>
+                                <td><?php echo $room["checkindate"]?></td>
+                                <td><?php echo $room["checkoutdate"]?></td>
+                                <td><?php echo $room["totalprice"]?></td>
+                            </tr>
 
+                            <?php
+                        }
+                        ?>
 
                         </tbody>
                     </table>
+
+                    <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalLabel">Edit the Customer</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col">
+                                        <h5>Reservation ID</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="IdInput" value="789456">
+                                            <label for="IdInput">Reservation ID</label>
+                                        </div>
+                                        <h5>Name</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="nameInput" value="Mustafa">
+                                            <label for="nameInput">Name</label>
+                                        </div>
+                                        <h5>Surname</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="surnameInput" value="KANLI">
+                                            <label for="surnameInput">Surname</label>
+                                        </div>
+
+                                        <h5>Room Id</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="RoomIdInput" value="42">
+                                            <label for="RoomIdInput">Room Id</label>
+                                        </div>
+                                        <h5>Check-in Date</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="date" class="form-control" id="checkInInput" value="13.04.2021">
+                                            <label for="checkInInput">Check-in Date</label>
+                                        </div>
+                                        <h5>Check-out Date</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="date" class="form-control" id="checkOutInput" value="15.04.2021">
+                                            <label for="checkOutInput">Check-out Date</label>
+                                        </div>
+                                        <h5>Price</h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="priceInput" value="900">
+                                            <label for="priceInput">Price</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete the Customer</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete this customer?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -316,12 +295,9 @@
     </div>
 </div>
 
-
-
-
 <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
     <footer>
-        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
     </footer>
 
 </div>

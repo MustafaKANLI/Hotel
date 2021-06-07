@@ -9,7 +9,7 @@
     <title>Gallery</title>
 </head>
 <body style="background-color: #F4F6FC">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <div class="container" style="background-color:#E8EAEF">
     <!--This is for Header, navbar-->
@@ -25,97 +25,96 @@
     <div class="container" style="padding-top:20px; padding-bottom: 10px; background-color: #E8EAEF">
         <h2>Gallery</h2>
     </div>
+    <div class="container" style="padding: 40px; border: 1px solid; background-color: #FFFFFF">
+        <div class="row">
+            <div class="row" style="padding-right: 20px">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 7"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="...">
+                        </div>
 
-    <div class="container" style="padding: 40px; border: 1px solid; max-height: 810px; overflow:auto; background-color: #FFFFFF">
-        <div class="row align-items-center">
-            <div class="col-4" align="center">
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img class="responsive" src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-
             </div>
-            <div class="col-4" align="center">
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+
+            <div class="row" style="overflow-x: auto; overflow-y: hidden; max-height: 150px; border: 1px solid; margin-top: 20px">
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
                     </a>
                 </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
                     </a>
                 </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
                     </a>
                 </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
                     </a>
                 </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
+                    </a>
+                </div>
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
+                    </a>
+                </div>
+                <div class="col" style="padding:10px">
+                    <a href="#">
+                        <img src="../src/images/Vip-room.jpg" class="d-block w-100" alt="..." width="150px" height="100px">
                     </a>
                 </div>
 
-            </div>
-            <div class="col-4" align="center">
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
-                <div class="row align-items-center" style="padding:10px">
-                    <a href="galleryOnClicked.php">
-                        <img src="../src/images/Vip-room.jpg" alt="" width="100%" height="100%">
-                    </a>
-                </div>
+
+
 
             </div>
         </div>
 
 
 
+        </div>
 
     </div>
 
@@ -133,3 +132,4 @@
 
 </body>
 </html>
+

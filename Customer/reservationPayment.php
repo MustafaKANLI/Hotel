@@ -227,11 +227,26 @@
 </html>
 
 <?php
+
+
+
 if($_SESSION['id'] != "" and $_SESSION['checkIn'] != "" and $_SESSION['checkIn'] != "" and $_POST["doorNumber"] != ""){
+
+
 
     $add = $conn -> query("INSERT INTO reservations(`customerid`, `checkindate`, `checkoutdate`, `doornumber`, `totalprice`) 
                 VALUES ('".$_SESSION['id']."','".$_SESSION['checkIn']."','".$_SESSION['checkOut']."','".$_POST["doorNumber"]."','".$totalPrice."')");
 
+}
+
+
+
+
+function input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
 ?>

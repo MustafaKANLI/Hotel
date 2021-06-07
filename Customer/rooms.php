@@ -28,13 +28,53 @@
 
 
     <div class="container" style="padding: 20px; border: 1px solid; max-height: 980px; overflow:auto; background-color: #FFFFFF">
+
+        <div class="row">
+            <div class="col-lg-3">
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseComment" role="button" aria-expanded="false" aria-controls="collapseComment">
+                    Make Comment
+                </a>
+
+                <div class="collapse" id="collapseComment" style="border: 1px solid; max-height: 300px; ">
+                    <h5>Make an review</h5>
+                    <form action="addComment.php" method="POST">
+                        <div class="row">
+                            <link rel="stylesheet" href="rate.css">
+                            <div class="rate" name="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="5 stars">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="4 stars">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="3 stars">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="2 stars">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="1 star">1 star</label>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top:30px">
+                            <div class="form-floating">
+                                <textarea class="form-control" name="text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Comment</label>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left: 80px; padding-right: 15px; padding-top: 30px; padding-bottom:15px">
+
+                            <button type="submit" class="btn btn-primary">Make Review</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!--This is for the Vip Rooms-->
         <div class="row">
             <div class="col" align="center" style="margin-top: 20px; ">
                 <div class="card" style="width: 66rem; box-shadow: 3px 3px 3px 3px #777777">
                     <div class="row">
                         <div class="col-5" style="padding:15px;margin-left: 10px">
-                            <a href="galleryOnClicked.php">
+                            <a href="gallery.php">
                                 <img src="../src/images/Vip-room.jpg" class="card-img-top" alt="..." height="270">
                             </a>
 
@@ -237,7 +277,7 @@
                 <div class="card" style="width: 66rem; box-shadow: 3px 3px 3px 3px #777777">
                     <div class="row">
                         <div class="col-5" style="padding:15px;margin-left: 10px">
-                            <a href="galleryOnClicked.php">
+                            <a href="gallery.php">
                                 <img src="../src/images/Vip-room.jpg" class="card-img-top" alt="..." height="270">
                             </a>
 
@@ -437,7 +477,7 @@
                 <div class="card" style="width: 66rem; box-shadow: 3px 3px 3px 3px #777777">
                     <div class="row">
                         <div class="col-5" style="padding:15px;margin-left: 10px">
-                            <a href="galleryOnClicked.php">
+                            <a href="gallery.php">
                                 <img src="../src/images/Vip-room.jpg" class="card-img-top" alt="..." height="270">
                             </a>
 
@@ -638,7 +678,7 @@
                 <div class="card" style="width: 66rem; box-shadow: 3px 3px 3px 3px #777777">
                     <div class="row">
                         <div class="col-5" style="padding:15px;margin-left: 10px">
-                            <a href="galleryOnClicked.php">
+                            <a href="gallery.php">
                                 <img src="../src/images/Vip-room.jpg" class="card-img-top" alt="..." height="270">
                             </a>
 
@@ -852,3 +892,4 @@
 
 </body>
 </html>
+

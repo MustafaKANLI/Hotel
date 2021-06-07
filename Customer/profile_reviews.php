@@ -41,6 +41,21 @@
                     </div>
                 </div>
                 <div class="col-8" style="padding: 10px; max-height: 300px; overflow:auto; border: 1px solid">
+
+                    <?php
+                    $select = "SELECT * FROM comments\n"
+                        . "INNER JOIN Customers\n"
+                        . "ON Customers.id = comments.customerid\n"
+                        . "WHERE customerid = '".$_SESSION["id"]."'\n"
+                        . "ORDER BY rate DESC";
+
+                    $result = $conn->query($select);
+
+                    while($select = $result->fetch_assoc()){
+
+
+                    ?>
+
                     <div class="row" style="border: 1px solid; padding-left: 15px; margin: 5px">
                         <div class="col-2" style="padding-top: 10px">
                             <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
@@ -48,8 +63,9 @@
                         <div class="col-6" style="padding-top:10px">
                             <div class="row">
                                 <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
+                                    <?php
+                                    echo $select["text"];
+                                    ?>
                                 </p>
 
                             </div>
@@ -64,7 +80,9 @@
                         </div>
                         <div class="col-4" align="center" style="padding-top: 30px">
                             <img src="../src/images/profile_black.png" width="70" height="70">
-                            <h6>Mustafa KANLI</h6>
+                            <h6><?php
+                                echo ($select["fname"]." ".$select["lname"]);
+                                ?></h6>
                             <div class="row" style="padding-top: 15px">
                                 <div class="col" align="right">
                                     <button class="btn"><i class="fa fa-trash"></i></button>
@@ -76,111 +94,10 @@
                         </div>
 
                     </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin: 5px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/four-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
 
-                            </div>
-                            <div class="row" style="padding-top:1px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="fa fa-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="fa fa-thumbs-down"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 30px">
-                            <img src="../src/images/profile_black.png" width="70" height="70">
-                            <h6>Mustafa KANLI</h6>
-                            <div class="row" style="padding-top: 15px">
-                                <div class="col" align="right">
-                                    <button class="btn"><i class="fa fa-trash"></i></button>
-                                </div>
-                                <div class="col" align="left">
-                                    <button class="btn"><i class="fa fa-pencil"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                    <?php } ?>
 
-                    </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin: 5px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/four-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
 
-                            </div>
-                            <div class="row" style="padding-top:1px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="fa fa-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="fa fa-thumbs-down"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 30px">
-                            <img src="../src/images/profile_black.png" width="70" height="70">
-                            <h6>Mustafa KANLI</h6>
-                            <div class="row" style="padding-top: 15px">
-                                <div class="col" align="right">
-                                    <button class="btn"><i class="fa fa-trash"></i></button>
-                                </div>
-                                <div class="col" align="left">
-                                    <button class="btn"><i class="fa fa-pencil"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin: 5px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/three-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
-
-                            </div>
-                            <div class="row" style="padding-top:1px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="fa fa-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="fa fa-thumbs-down"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 30px">
-                            <img src="../src/images/profile_black.png" width="70" height="70">
-                            <h6>Mustafa KANLI</h6>
-                            <div class="row" style="padding-top: 15px">
-                                <div class="col" align="right">
-                                    <button class="btn"><i class="fa fa-trash"></i></button>
-                                </div>
-                                <div class="col" align="left">
-                                    <button class="btn"><i class="fa fa-pencil"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
             </div>

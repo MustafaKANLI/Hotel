@@ -88,15 +88,15 @@
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="bookings.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="bookings.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-calendar-check"></i>    Bookings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booked.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="booked.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-clipboard-check"></i>    Booked Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="emptyRooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="emptyRooms.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-house-door"></i>    Empty Rooms</a>
                                 </li>
                                 <li class="nav-item" onClick="subMenuAction()">
@@ -211,9 +211,18 @@
             <div class="row" style="margin-top: 10rem; margin-bottom:5rem">
 
                 <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 600px">
-                    <div class="col" align="right">
-                        <a class="btn btn-outline-secondary" href="addRoom.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Room</a>
+                    <div class="row">
+                        <div class="col-lg-4" align="left">
+                            <form class="d-flex" action="rooms.php?operation=search" method="POST">
+                                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-8" align="right">
+                            <a class="btn btn-outline-secondary" href="addRoom.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Room</a>
+                        </div>
                     </div>
+
 
                     <table class="table table-striped table-hover">
                         <thead>
@@ -232,17 +241,60 @@
                         <?php
                         include("../src/database/connect_db.php");
 
-                        $select = "SELECT * FROM roomprices\n"
+                        $select = "SELECT * FROM roomprices
+                           INNER JOIN rooms
+                            ON rooms.roomtype = roomprices.roomtype
+                            ORDER BY doornumber ASC";
 
-                            . "INNER JOIN rooms\n"
-
-                            . "ON rooms.roomtype=roomprices.roomtype\n"
-
-                            . "ORDER BY doornumber ASC";
                         $result = $conn->query($select);
 
+                        $operation = @$_GET["operation"];
+
+                        if($operation == "search"){
+                                if($_POST){
+                                    $search = $_POST["search"];
+
+                                    $selectDoorNumber = $conn -> query("SELECT * FROM rooms
+                                                INNER JOIN roomprices ON rooms.roomtype = roomprices.roomtype
+                                                WHERE rooms.doornumber like '".'%'.$search.'%'."' OR rooms.roomtype like '".'%'.$search.'%'."'
+                                                 ORDER BY doornumber ASC
+                                ");
 
 
+                                    if($selectDoorNumber -> num_rows>0){
+                                        while($results = $selectDoorNumber->fetch_assoc()){
+                                            echo "
+                                            <tr>
+                                                <td>".$results['doornumber']."</td>
+                                                <td>".$results['roomtype']."</td>
+                                                <td>".$results['floornumber']."</td>
+                                                <td>".$results['price']."</td>
+                                                <td>".$results['status']."</td>
+                         
+                                                <td>
+                                                     <div class='btn-group' role='group' aria-label='Basic outlined example'>
+                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                        <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ";
+                                        }
+                                    }
+
+                                    else{
+                                        echo "<div class='row' style='background-color: lightpink; margin-top:30px; margin-bottom: 20px'>There were no results...</div>";
+
+                                    }
+
+                                }
+
+
+
+                        }
+
+
+                    if($operation == ""){
                         if($result -> num_rows>0){
                             while($select = $result->fetch_assoc()){
                                 echo "
@@ -263,6 +315,8 @@
                                         ";
                             }
                         }
+                    }
+
 
                         ?>
 

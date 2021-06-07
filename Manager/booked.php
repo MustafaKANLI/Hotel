@@ -6,22 +6,22 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Booked Rooms</title>
 </head>
 <body style="background-color: #F4F6FC">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <!--This is for Header, navbar-->
-    <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
-        <header class="header">
-            <?php
-            require ("header.php");
-            ?>
-        </header>
+<!--This is for Header, navbar-->
+<div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
+    <header class="header">
+        <?php
+        require ("header.php");
+        ?>
+    </header>
 
-    </div>
+</div>
 
 <div class="container-flex">
     <!--This is for content-->
@@ -53,7 +53,7 @@
 
                             <ul class="no-bullets">
                                 <li class="nav-item" >
-                                    <a href="index.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                    <a href="index.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
@@ -61,7 +61,7 @@
                                         <i class="bi bi-calendar-check"></i>    Bookings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booked.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="booked.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-clipboard-check"></i>    Booked Rooms</a>
                                 </li>
                                 <li class="nav-item">
@@ -109,124 +109,141 @@
         </div>
 
 
+        <div class="col-9">
+            <div class="row"  align="center" style="margin-top: 2rem">
 
-        <div class="col-sm-3"  align="center" style="margin-top: 2rem">
-            <div class="row" style="width:25rem;height:10rem">
-                <div class="col-8" style="border: 1px solid; background-color: white; padding-left:20px; padding-top:50px " align="center" >
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/dollar.png" width="30" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h3>Revenue</h3>
-                            </div>
-                            <div class="row">
-                                <h6>150 000$</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 6rem; width:25rem;height:10rem">
-                <div class="col-8" style="border: 1px solid; background-color: white; padding-left:20px; padding-top:50px " align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/dollar.png" width="30" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h3>Expense</h3>
-                            </div>
-                            <div class="row">
-                                <h6>50 000$</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3"  align="center" style="margin-top: 2rem">
-            <div class="row" style="width:25rem;height:10rem">
-                <div class="col-8" style="border: 1px solid; background-color: white; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/people.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h3>Customers</h3>
-                            </div>
-                            <div class="row">
-                                <h6>400</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 6rem; width:25rem;height:10rem">
-                <div class="col-8" style="border: 1px solid; background-color: white; padding-left:20px; padding-top:50px" align="center">
+                <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
                     <div class="row">
                         <div class="col-2">
                             <img src="../src/images/rooms.png" width="50" height="50">
                         </div>
                         <div class="col-10" align="center">
                             <div class="row">
-                                <h3>Rooms</h3>
+                                <h5>Total Rooms</h5>
                             </div>
                             <div class="row">
-                                <h6>120</h6>
+                                <h4>120</h4>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-3"  align="center" style="margin-top: 2rem">
-            <div class="row" style="width:25rem;height:10rem">
-                <div class="col-8"  align="center">
-                    <div class="row" >
+                <div class="col-3" style="border: 1px solid; margin-right:20px;  background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
+                    <div class="row">
                         <div class="col-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Bar_graph.svg" width="250px" height="150px">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 6rem; width:25rem;height:10rem">
-                <div class="col-8" style="border: 1px solid; background-color: white; padding-left:20px;  padding-top:50px" align="center">
-                    <div class="row" >
-                        <div class="col-2">
-                            <img src="../src/images/star-half.svg" width="50" height="50">
+                            <img src="../src/images/rooms.png" width="50" height="50">
                         </div>
                         <div class="col-10" align="center">
                             <div class="row">
-                                <h3>Rate</h3>
+                                <h5>Booked Rooms</h5>
                             </div>
                             <div class="row">
-                                <h6>4.82</h6>
+                                <h4>30</h4>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; margin-right:20px; padding-left:20px; padding-top:50px" align="center">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="../src/images/rooms.png" width="50" height="50">
+                        </div>
+                        <div class="col-10" align="center">
+                            <div class="row">
+                                <h5>Booking Rooms</h5>
+                            </div>
+                            <div class="row">
+                                <h4>20</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="../src/images/rooms.png" width="50" height="50">
+                        </div>
+                        <div class="col-10" align="center">
+                            <div class="row">
+                                <h5>Empty Rooms</h5>
+                            </div>
+                            <div class="row">
+                                <h4>70</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
+            <!-- This is for Table -->
+            <?php
+            $date = date("Y-m-d");
+            include("../src/database/connect_db.php");
+
+            $selectSql = "SELECT * FROM reservations
+                INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
+                INNER JOIN customers ON customers.id = reservations.customerid
+                WHERE checkindate < '".$date."'
+                ORDER BY reservations.doornumber ASC
+                ";
+            $resultSql= $conn->query($selectSql);
+
+            ?>
+            <!-- This is for Table -->
+            <div class="row" style="margin-top: 10rem">
+                <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Door Number</th>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Customer Surname</th>
+                            <th scope="col">Check-in Date</th>
+                            <th scope="col">Check-out Date</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        while($room = $resultSql->fetch_assoc()){
+                            ?>
+                            <tr>
+                                <td><?php echo $room["roomtype"]?> Room</td>
+                                <td><?php echo $room["doornumber"]?></td>
+                                <td><?php echo $room["customerid"]?></td>
+                                <td><?php echo $room["fname"]?></td>
+                                <td><?php echo $room["lname"]?></td>
+                                <td><?php echo $room["checkindate"]?></td>
+                                <td><?php echo $room["checkoutdate"]?></td>
+                                <td><?php echo $room["totalprice"]?></td>
+                            </tr>
+
+                            <?php
+                        }
+                        ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
         </div>
-
     </div>
+</div>
 
 
 
 
+<div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
+    <footer>
+        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+    </footer>
 
-
-
-
-    <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
-        <footer>
-            <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
-        </footer>
-
-    </div>
+</div>
 </div>
 </body>
 </html>

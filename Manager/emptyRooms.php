@@ -6,55 +6,24 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Booking Rooms</title>
+    <title>Empty Rooms</title>
 </head>
 <body style="background-color: #F4F6FC">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?Single=Material+Icons" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 <!--This is for Header, navbar-->
 <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
     <header class="header">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../src/images/logo.png" alt="" width=50 height="30">
-                    Paradis Hotel
-
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                    <div class="col" align="left">
-                        <link rel="stylesheet" href="profileHoverDropdown.css">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                    <div class="dropdown-content">
-                                        <ul >
-                                            <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                            <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                            <li ><a href="login.html" style="color:black">Log Out</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php
+        require ("header.php");
+        ?>
     </header>
 
 </div>
 
-<div class="container-flex">
+<div class="container-flex" style="margin-bottom: 30px;">
     <!--This is for content-->
     <div class="row">
         <div class="col-2">
@@ -88,15 +57,15 @@
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="bookings.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                    <a href="bookings.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-calendar-check"></i>    Bookings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booked.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="booked.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-clipboard-check"></i>    Booked Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="emptyRooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="emptyRooms.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-house-door"></i>    Empty Rooms</a>
                                 </li>
                                 <li class="nav-item" onClick="subMenuAction()">
@@ -119,7 +88,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="reservations.php" class="list-group-item list-group-item-action bg-dark" style="color:white" style="color:white">
-                                                <i class="bi bi-receipt"></i>    Reservations</a>
+                                                <i class="bi bi-receipt"></i>   Reservations</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -143,21 +112,21 @@
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
 
-                    <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../src/images/rooms.png" width="50" height="50">
+                <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="../src/images/rooms.png" width="50" height="50">
+                        </div>
+                        <div class="col-10" align="center">
+                            <div class="row">
+                                <h5>Total Rooms</h5>
                             </div>
-                            <div class="col-10" align="center">
-                                <div class="row">
-                                    <h5>Total Rooms</h5>
-                                </div>
-                                <div class="row">
-                                    <h4>120</h4>
-                                </div>
+                            <div class="row">
+                                <h4>120</h4>
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="col-3" style="border: 1px solid; margin-right:20px;  background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
                     <div class="row">
                         <div class="col-2">
@@ -207,104 +176,42 @@
 
             </div>
 
+            <?php
+
+            $selectSql = "SELECT * FROM rooms
+                INNER JOIN roomprices ON roomprices.roomtype = rooms.roomtype
+                WHERE status = 'Empty'
+                ORDER BY doornumber ASC
+                ";
+            $resultSql= $conn->query($selectSql);
+
+            ?>
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">
-                <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 300px; background-color: white">
+                <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Room Id</th>
                             <th scope="col">Room Type</th>
-                            <th scope="col">Customer Id</th>
-                            <th scope="col">Customer Name</th>
-                            <th scope="col">Customer Surname</th>
-                            <th scope="col">Check-in Date</th>
-                            <th scope="col">Check-out Date</th>
+                            <th scope="col">Floor</th>
+                            <th scope="col">Door Number</th>
                             <th scope="col">Price</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        while($room = $resultSql->fetch_assoc()){
+                        ?>
                         <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Family Room</td>
-                            <td>132546</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>11.06.2021</td>
-                            <td>18.06.2021</td>
-                            <td>2500</td>
+                            <td><?php echo $room["roomtype"]?> Room</td>
+                            <td><?php echo $room["floornumber"]?></td>
+                            <td><?php echo $room["doornumber"]?></td>
+                            <td><?php echo $room["price"]?></td>
                         </tr>
 
+                        <?php
+                        }
+                        ?>
 
                         </tbody>
                     </table>
@@ -314,17 +221,17 @@
 
         </div>
     </div>
-    </div>
+</div>
 
 
 
 
-    <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
-        <footer>
-            <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
-        </footer>
+<div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
+    <footer>
+        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+    </footer>
 
-    </div>
+</div>
 </div>
 </body>
 </html>

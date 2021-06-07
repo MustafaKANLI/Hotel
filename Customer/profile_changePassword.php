@@ -17,6 +17,8 @@
         <header class="header">
             <?php
             require ("header.php");
+
+
             ?>
         </header>
 
@@ -54,13 +56,13 @@
 
         }
 
-        if(!isset($oldPassword)){
+        if(empty($oldPassword)){
             $generalErrorOld = "This section can't be empty!!!!";
         }
-        if(!isset($newPassword)){
+        if(empty($newPassword)){
             $generalErrorNew = "This section can't be empty!!!!";
         }
-        if(!isset($newPasswordAgain)){
+        if(empty($newPasswordAgain)){
             $generalErrorNewAgain = "This section can't be empty!!!!";
         }
         if($oldPassword != $user['password']){

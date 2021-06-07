@@ -33,6 +33,8 @@
     <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
             <h2>Reservations</h2>
+
+
             <div class="row" align="left" style="margin-top:40px">
                 <div class="col-4">
                     <div class="list-group">
@@ -46,62 +48,58 @@
                     </div>
                 </div>
                 <div class="col-8" style="padding-top: 10px; padding-left: 20px; border: 1px solid; overflow: auto; max-height: 400px">
-                    <div class="row" style="border: 1px solid; margin-top:10px; margin-bottom: 10px">
-                        <div class="col-4" style="padding-top: 13px">
-                            <img src="../src/images/Vip-room.jpg" width="170px" height="120px">
-                        </div>
-                        <div class="col-4" style="padding-top: 10px">
-                            <h6>Reservation Continues</h6>
-                            <p>Vip Room</p>
-                            <hr>
-                            <p>15/04/2021 - 20/04/2021</p>
-                            <hr>
-                            <p>2 days left</p>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 85px">
-                            <a href="reservations_extendCancel.html">
-                                <button class="btn btn-primary">Extend/Cancel</button>
-                            </a>
-                        </div>
-                    </div>
+                    <?php
 
-                    <div class="row" style="border: 1px solid; margin-top:10px; margin-bottom: 10px">
-                        <div class="col-4" style="padding-top: 13px">
-                            <img src="../src/images/Vip-room.jpg" width="170px" height="120px">
-                        </div>
-                        <div class="col-4" style="padding-top: 10px">
-                            <h6>Reservation Ended</h6>
-                            <p>Double Room</p>
-                            <hr>
-                            <p>15/03/2021 - 15/03/2021</p>
-                            <hr>
-                            <p>Ended</p>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 85px">
-                            <a href="reservations_details.php">
-                                <button class="btn btn-primary">See the Details</button>
-                            </a>
-                        </div>
-                    </div>
+                    $select = $conn -> query("SELECT * FROM reservations
+                                    INNER JOIN rooms ON rooms.doornumber = reservations.doornumber
+                                    WHERE customerid = '".$_SESSION["id"]."'
+                                    ORDER BY checkoutdate DESC
 
-                    <div class="row" style="border: 1px solid; margin-top:10px; margin-bottom: 10px">
-                        <div class="col-4" style="padding-top: 13px">
-                            <img src="../src/images/Vip-room.jpg" width="170px" height="120px">
+                                ");
+                        
+
+                    $reservationInfo = "";
+
+
+                    while($reservation = $select -> fetch_assoc()){
+
+                        $doornumber = $reservation["doornumber"];
+                        $roomtype = $reservation["roomtype"];
+                        $checkindate = $reservation["checkindate"];
+                        $checkoutdate = $reservation["checkoutdate"];
+
+                        if(strtotime($reservation["checkoutdate"]) <= (date("Y-m-d"))){
+                            $reservationInfo = "Reservation Continues";
+                        }
+                        else{
+                            $reservationInfo = "Reservation Ended";
+                        }
+                    ?>
+                        <div class="row" style="border: 1px solid; margin-top:10px; margin-bottom: 10px">
+                            <div class="col-4" style="padding-top: 13px">
+                                <img src="../src/images/Vip-room.jpg" width="170px" height="120px">
+                            </div>
+                            <div class="col-4" style="padding-top: 10px">
+                                <h6><?php echo $reservationInfo; ?> </h6>
+                                <p>Door Number: <?php echo $doornumber;?></p>
+                                <hr>
+                                <p><?php echo $roomtype;?> Room</p>
+                                <hr>
+                                <p><?php echo $checkindate;?> <br> <?php echo $checkoutdate;?></p>
+
+                            </div>
+                            <div class="col-4" align="center" style="padding-top: 85px">
+                                <a href="reservations_extendCancel.html">
+                                    <button class="btn btn-primary">Extend/Cancel</button>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-4" style="padding-top: 10px">
-                            <h6>Reservation Ended</h6>
-                            <p>Double Room</p>
-                            <hr>
-                            <p>15/03/2021 - 15/03/2021</p>
-                            <hr>
-                            <p>Ended</p>
-                        </div>
-                        <div class="col-4" align="center" style="padding-top: 85px">
-                            <a href="reservations_details.php">
-                                <button class="btn btn-primary">See the Details</button>
-                            </a>
-                        </div>
-                    </div>
+
+                <?php
+                    }
+                ?>
+
+
                 </div>
 
             </div>

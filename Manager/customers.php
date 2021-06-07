@@ -100,15 +100,15 @@
                                         <i class="bi bi-graph-up"></i>    Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="bookings.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="bookings.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-calendar-check"></i>    Bookings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booked.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="booked.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-clipboard-check"></i>    Booked Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="emptyRooms.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="emptyRooms.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-house-door"></i>    Empty Rooms</a>
                                 </li>
                                 <li class="nav-item" onClick="subMenuAction()">
@@ -207,10 +207,20 @@
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem; margin-bottom: 5rem">
 
+
                 <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 600px">
-                    <div class="col" align="right">
-                        <a class="btn btn-outline-secondary" href="addCustomer.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Customer</a>
+                    <div class="row">
+                        <div class="col-lg-4" align="left">
+                            <form class="d-flex" action="customers.php?operation=search" method="POST">
+                                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-8" align="right">
+                            <a class="btn btn-outline-secondary" href="addCustomer.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Customer</a>
+                        </div>
                     </div>
+
 
                     <table class="table table-striped table-hover">
                         <thead>
@@ -226,37 +236,68 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>123456</td>
-                            <td>Mustafa</td>
-                            <td>KANLI</td>
-                            <td>+90 555 555 55 55</td>
-                            <td>In</td>
-                            <td>3800</td>
-                            <td>3</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
 
                             <?php
 
 
-                                $select = "SELECT * FROM customers";
-                                $result = $conn->query($select);
+                            $select = "SELECT * FROM customers ORDER BY id ASC";
+                            $result = $conn->query($select);
 
-                                if($result -> num_rows>0){
-                                    while($select = $result->fetch_assoc()){
+                            $operation = @$_GET["operation"];
+
+                            if($operation == "search"){
+                                if($_POST) {
+                                    $search = $_POST["search"];
+
+                                    $selectRow = $conn->query("SELECT * FROM customers WHERE id like '".'%'.$search.'%'."' or 
+                                        fname like '".'%'.$search.'%'."' or lname like '".'%'.$search.'%'."' ORDER BY id ASC ");
+
+
+                                    if($selectRow -> num_rows>0){
+                                            while($results = $selectRow->fetch_assoc()) {
+
+                                                echo "
+                                            <tr>
+                                                <td>".$results['id']."</td>
+                                                <td>".$results['fname']."</td>
+                                                <td>".$results['lname']."</td>
+                                                <td>".$results['phonenumber']."</td>
+                                                <td>".$results['status']."</td>
+                                                <td>3800</td>
+                                                <td>3</td>
+                                                <td>
+                                                     <div class='btn-group' role='group' aria-label='Basic outlined example'>
+                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                        <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ";
+
+                                            }
+                                    }
+
+                                    else{
+                                        echo "<div class='row' style='background-color: lightpink; margin-top:30px; margin-bottom: 20px'>There were no results...</div>";
+
+                                    }
+
+
+
+                                }
+                            }
+
+                            if($operation == "") {
+
+                                if ($result->num_rows > 0) {
+                                    while ($select = $result->fetch_assoc()) {
                                         echo "
                                             <tr>
-                                                <td>".$select['id']."</td>
-                                                <td>".$select['fname']."</td>
-                                                <td>".$select['lname']."</td>
-                                                <td>".$select['phonenumber']."</td>
-                                                <td>".$select['status']."</td>
+                                                <td>" . $select['id'] . "</td>
+                                                <td>" . $select['fname'] . "</td>
+                                                <td>" . $select['lname'] . "</td>
+                                                <td>" . $select['phonenumber'] . "</td>
+                                                <td>" . $select['status'] . "</td>
                                                 <td>3800</td>
                                                 <td>3</td>
                                                 <td>
@@ -269,7 +310,11 @@
                                         ";
                                     }
                                 }
-    
+
+
+
+
+                            }
                             ?>
                         </tbody>
                     </table>
