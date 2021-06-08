@@ -16,40 +16,9 @@
 <!--This is for Header, navbar-->
 <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
     <header class="header">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../src/images/logo.png" alt="" width=50 height="30">
-                    Paradis Hotel
-
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                    <div class="col" align="left">
-                        <link rel="stylesheet" href="profileHoverDropdown.css">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                    <div class="dropdown-content">
-                                        <ul >
-                                            <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                            <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                            <li ><a href="login.html" style="color:black">Log Out</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php
+        require ("header.php");
+        ?>
     </header>
 
 </div>
@@ -124,11 +93,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="reports.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="reports.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-book-half"></i>    Reports</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="comments.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                    <a href="comments.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
                                 </li>
 
@@ -177,10 +146,22 @@
 
             </div>
 
+
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">
 
-                <div class="col" style="border: 1px solid; background-color: white; padding:15px; overflow:auto; max-height: 300px">
+                <div class="col" style="border: 1px solid; background-color: white; padding:15px; margin-bottom: 30px; overflow:auto; max-height: 500px">
+                    <?php
+
+                    $select = $conn -> query("SELECT * FROM comments
+                                             INNER JOIN customers ON comments.customerid = customers.id");
+
+                    while ($comment = $select ->fetch_assoc()){
+
+
+
+                    ?>
+
                     <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
                         <div class="col-2" style="padding-top: 10px">
                             <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
@@ -188,8 +169,7 @@
                         <div class="col-6" style="padding-top:10px">
                             <div class="row">
                                 <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
+                                    <?php echo $comment['text'] ?>
                                 </p>
 
                             </div>
@@ -210,142 +190,12 @@
                         </div>
                         <div class="col-4 align-middle" align="center" style="padding-top: 20px">
                             <a><img src="../src/images/profile_black.png" width="70" height="70"></a>
-                            <h6>Mustafa KANLI</h6>
+                            <h6><?php echo $comment['fname']  , " ", $comment['lname'];  ?></h6>
                         </div>
 
                     </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
-
-                            </div>
-                            <div class="row" style="padding-top:15px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-down"></i></button>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#makeCommentModel"><i class="bi bi-chat-right-text"></i></a>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#commentModel"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 align-middle" align="center" style="padding-top: 20px">
-                            <a><img src="../src/images/profile_black.png" width="70" height="70"></a>
-                            <h6>Mustafa KANLI</h6>
-                        </div>
-
-                    </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
-
-                            </div>
-                            <div class="row" style="padding-top:15px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-down"></i></button>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#makeCommentModel"><i class="bi bi-chat-right-text"></i></a>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#commentModel"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 align-middle" align="center" style="padding-top: 20px">
-                            <a><img src="../src/images/profile_black.png" width="70" height="70"></a>
-                            <h6>Mustafa KANLI</h6>
-                        </div>
-
-                    </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
-
-                            </div>
-                            <div class="row" style="padding-top:15px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-down"></i></button>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#makeCommentModel"><i class="bi bi-chat-right-text"></i></a>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#commentModel"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 align-middle" align="center" style="padding-top: 20px">
-                            <a><img src="../src/images/profile_black.png" width="70" height="70"></a>
-                            <h6>Mustafa KANLI</h6>
-                        </div>
-
-                    </div>
-                    <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
-                        <div class="col-2" style="padding-top: 10px">
-                            <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
-                        </div>
-                        <div class="col-6" style="padding-top:10px">
-                            <div class="row">
-                                <p>
-                                    This is very nice hotel. I love it. I prefer to everyone. Entertainments are so good. Also this
-                                    website is perfect. I love it's design, too simple and minimal.
-                                </p>
-
-                            </div>
-                            <div class="row" style="padding-top:15px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="bi bi-hand-thumbs-down"></i></button>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#makeCommentModel"><i class="bi bi-chat-right-text"></i></a>
-                                </div>
-                                <div class="col-2" align="right">
-                                    <a class="btn" data-bs-toggle="modal" data-bs-target="#commentModel"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 align-middle" align="center" style="padding-top: 20px">
-                            <a><img src="../src/images/profile_black.png" width="70" height="70"></a>
-                            <h6>Mustafa KANLI</h6>
-                        </div>
-
-                    </div>
+                    <?php } ?>
+                </div>
 
 
                     <div class="modal fade" id="commentModel" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">

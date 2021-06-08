@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Reservations</title>
 </head>
 <body style="background-color: #F4F6FC">
 
@@ -47,7 +47,7 @@
 
                     </div>
                 </div>
-                <div class="col-8" style="padding-top: 10px; padding-left: 20px; border: 1px solid; overflow: auto; max-height: 400px">
+                <div class="col-8" style="padding-top: 10px; padding-left: 20px; border: 1px solid; overflow: auto; max-height: 600px">
                     <?php
 
                     $select = $conn -> query("SELECT * FROM reservations
@@ -56,9 +56,9 @@
                                     ORDER BY checkoutdate DESC
 
                                 ");
-                        
 
-                    $reservationInfo = "";
+
+                    $reservationInfo = $linkOfButton = $textOfButton = "";
 
 
                     while($reservation = $select -> fetch_assoc()){
@@ -67,12 +67,17 @@
                         $roomtype = $reservation["roomtype"];
                         $checkindate = $reservation["checkindate"];
                         $checkoutdate = $reservation["checkoutdate"];
+                        $price = $reservation["totalprice"];
 
-                        if(strtotime($reservation["checkoutdate"]) <= (date("Y-m-d"))){
+                        if($checkoutdate >= date("Y-m-d")){
                             $reservationInfo = "Reservation Continues";
+                            $linkOfButton = "reservations_extendCancel.php";
+                            $textOfButton = "Extend/Cancel";
                         }
                         else{
                             $reservationInfo = "Reservation Ended";
+                            $linkOfButton = "reservations_details.php";
+                            $textOfButton = "See the Details";
                         }
                     ?>
                         <div class="row" style="border: 1px solid; margin-top:10px; margin-bottom: 10px">
@@ -86,12 +91,21 @@
                                 <p><?php echo $roomtype;?> Room</p>
                                 <hr>
                                 <p><?php echo $checkindate;?> <br> <?php echo $checkoutdate;?></p>
+                                <hr>
+                                <p><?php echo $price;?> USD</p>
 
                             </div>
                             <div class="col-4" align="center" style="padding-top: 85px">
-                                <a href="reservations_extendCancel.html">
-                                    <button class="btn btn-primary">Extend/Cancel</button>
+                                <form action="<?php echo $linkOfButton;?>" method="POST">
+                                    <input type="hidden" id="doornumber" name="doornumber" value="<?php echo $doornumber; ?>">
+                                    <input type="hidden" id="roomtype" name="roomtype" value="<?php echo $roomtype; ?>">
+                                    <input type="hidden" id="checkindate" name="checkindate" value="<?php echo $checkindate; ?>">
+                                    <input type="hidden" id="checkoutdate" name="checkoutdate" value="<?php echo $checkoutdate; ?>">
+                                    <input type="hidden" id="price" name="price" value="<?php echo $price; ?>">
+                                <a href="<?php echo $linkOfButton;?>">
+                                    <button class="btn btn-primary"><?php echo $textOfButton;?></button>
                                 </a>
+                                </form>
                             </div>
                         </div>
 

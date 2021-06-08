@@ -136,11 +136,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="reports.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="reports.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-book-half"></i>    Reports</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="comments.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="comments.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
                                 </li>
 

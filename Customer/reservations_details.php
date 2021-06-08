@@ -83,19 +83,23 @@
                                 <tbody>
                                 <tr>
                                     <td scope="col">Check-in Date</td>
-                                    <td scope="col">15/03/2021</td>
+                                    <td scope="col"><?php echo $_POST["checkindate"];?></td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Check-out Date</td>
-                                    <td scope="col">15/03/2021</td>
+                                    <td scope="col"><?php echo $_POST["checkoutdate"];?></td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Room Type</td>
-                                    <td scope="col">Double Room</td>
+                                    <td scope="col"><?php echo $_POST["roomtype"];?> Room</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Door Number</td>
+                                    <td scope="col"><?php echo $_POST["doornumber"];?></td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Price</td>
-                                    <td scope="col">250 Usd</td>
+                                    <td scope="col"><?php echo $_POST["price"];?> Usd</td>
                                 </tr>
                                 </tbody>
                             </table>

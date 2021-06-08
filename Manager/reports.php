@@ -16,40 +16,9 @@
 <!--This is for Header, navbar-->
 <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
     <header class="header">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../src/images/logo.png" alt="" width=50 height="30">
-                    Paradis Hotel
-
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                    <div class="col" align="left">
-                        <link rel="stylesheet" href="profileHoverDropdown.css">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                    <div class="dropdown-content">
-                                        <ul >
-                                            <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                            <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                            <li ><a href="login.html" style="color:black">Log Out</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php
+        require ("header.php");
+        ?>
     </header>
 
 </div>
@@ -124,11 +93,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="reports.html" class="list-group-item list-group-item-action bg-primary" style="color:white">
+                                    <a href="reports.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-book-half"></i>    Reports</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="comments.html" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                    <a href="comments.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
                                 </li>
 
@@ -161,6 +130,25 @@
 
 
             </div>
+
+            <?php
+
+            include("../src/database/connect_db.php");
+            $selectSql = $conn->query("SELECT * FROM reports
+                ");
+
+
+            function revenueCalc($query){
+                include("../src/database/connect_db.php");
+                $total = 0;
+                while($result = $query->fetch_assoc()){
+                    $total += $result['revenue'];
+                }
+
+                return $total;
+            }
+
+            ?>
 
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">
@@ -199,102 +187,33 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Report Id</th>
                             <th scope="col">Starting Date</th>
                             <th scope="col">End Date</th>
                             <th scope="col">Revenue</th>
                             <th scope="col">Expense</th>
-                            <th scope="col">Total Booked Rooms</th>
-                            <th scope="col">Total Cancelled Reservations</th>
+                            <th scope="col">Total Reservations</th>
                             <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>456123789</td>
-                            <td>18.03.2021</td>
-                            <td>18.04.2021</td>
-                            <td>80 000</td>
-                            <td>35 000</td>
-                            <td>900</td>
-                            <td>15</td>
-                            <td>
-                                <div class="btn" role="button" aria-label="Basic outlined example">
-                                    <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        while($report = $selectSql->fetch_assoc()){
+                            ?>
+                            <tr>
+                                <td><?php echo $report["startdate"]?></td>
+                                <td><?php echo $report["enddate"]?></td>
+                                <td><?php echo $report["revenue"]?></td>
+                                <td><?php echo $report["expense"]?></td>
+                                <td><?php echo $report["totalreservations"]?></td>
+                                <td><div class='btn'  aria-label='Basic outlined example'>
+                                        <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                    </div></td>
 
+                            </tr>
+
+                            <?php
+                        }
+                        ?>
                         </tbody>
                     </table>
 

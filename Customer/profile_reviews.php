@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>User Reviews</title>
 </head>
 <body style="background-color: #F4F6FC">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +40,7 @@
 
                     </div>
                 </div>
-                <div class="col-8" style="padding: 10px; max-height: 300px; overflow:auto; border: 1px solid">
+                <div class="col-8" style="padding: 10px; max-height: 500px; overflow:auto; border: 1px solid">
 
                     <?php
                     $select = "SELECT * FROM comments\n"
@@ -69,14 +69,7 @@
                                 </p>
 
                             </div>
-                            <div class="row" style="padding-top:1px">
-                                <div class="col-2" align="right">
-                                    <button class="btn"><i class="fa fa-thumbs-up"></i></button>
-                                </div>
-                                <div class="col-2" align="left">
-                                    <button class="btn"><i class="fa fa-thumbs-down"></i></button>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="col-4" align="center" style="padding-top: 30px">
                             <img src="../src/images/profile_black.png" width="70" height="70">

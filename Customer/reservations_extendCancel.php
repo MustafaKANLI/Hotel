@@ -15,51 +15,19 @@
     <!--This is for Header, navbar-->
     <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
         <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="index.php">
-                        <img src="../src/images/logo.png" alt="" width=50 height="30">
-                        Paradis Hotel
-
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                        <div class="col" align="left">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.php" aria-disabled="true">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="gallery.php">Gallery</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="rooms.php">Rooms</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="reservations.php">Reservations</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.php">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="login.php"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
+            <?php
+            require ("header.php");
+            ?>
         </header>
 
     </div>
 
     <div class="container" style="padding-top:20px; padding-bottom: 10px; background-color: #E8EAEF"></div>
-
+    <script>
+        function submitForm(){
+            document.getElementById("update").submit();
+        }
+    </script>
     <!--This is for content-->
     <div class="container" style="padding: 40px; border: 1px solid; margin-top: 70px; max-height: 800px; max-width: 980px; background-color: #FFFFFF">
         <div class="col" align="center" style="padding-bottom: 50px">
@@ -89,25 +57,49 @@
                             </div>
 
                         </div>
+                        <?php
+
+                        $select = $conn -> query("SELECT * FROM reservations
+                                                  WHERE customerid = '".$_SESSION["id"]."' AND checkindate = '".$_POST["checkindate"]."' AND doornumber = '".$_POST["doornumber"]."'
+                                    
+
+                                ");
+
+                        $reservation = $select -> fetch_assoc();
+
+                        ?>
+
+
                         <div class="row">
                             <div class="col-4" style="padding-top: 13px">
                                 <img src="../src/images/Vip-room.jpg" width="170px" height="120px">
                             </div>
                             <div class="col-4" style="padding-top: 10px">
 
-                                <p>Vip Room</p>
+                                <p><?php echo $_POST["roomtype"];?> Room</p>
                                 <hr>
-                                <p>15/04/2021 - 20/04/2021</p>
+                                <p><?php echo $_POST["doornumber"];?></p>
                                 <hr>
-                                <p>2 days left</p>
+                                <p><?php echo $_POST["checkindate"];?> <br> <?php echo $reservation['checkoutdate'];?></p>
+                                <hr>
+                                <p><?php echo $_POST["price"];?> USD</p>
+
+
                             </div>
                             <div class="col-4" align="center" style="padding-top: 85px">
                                 <div class="mb-3">
-                                    <label for="dateInput" class="form-label">New Check-Out Date</label>
-                                    <a>
-                                        <input type="date" class="form-control" id="dateInput">
-                                    </a>
+                                    <form action="reservation_update.php" id="update" method="POST">
+                                        <label for="dateInput" class="form-label">New Check-Out Date</label>
+                                        <a>
+                                            <input type="date" name="checkoutdate" class="form-control" id="dateInput">
+                                            <input type="hidden" id="doornumber" name="doornumber" value="<?php echo $_POST["doornumber"]; ?>">
+                                            <input type="hidden" id="checkindate" name="checkindate" value="<?php echo $_POST["checkindate"]; ?>">
+                                            <input type="hidden" id="roomtype" name="roomtype" value="<?php echo $_POST["roomtype"]; ?>">
+                                        </a>
+                                    </form>
+
                                 </div>
+
                             </div>
                         </div>
 
@@ -152,7 +144,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                                                <button onClick="submitForm()" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
                                             </div>
                                         </div>
                                     </div>
