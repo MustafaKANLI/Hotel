@@ -74,7 +74,7 @@ include("../src/database/connect_db.php");
                 <form action="reservationPayment.php" method="POST">
                     <input type="hidden" id="doorNumber" name="doorNumber" value="<?php echo $room['doornumber'] ?>">
                     <a href="reservationPayment.php">
-                        <button class="btn btn-secondary btn-sm" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Search Rooms</button>
+                        <button class="btn btn-secondary btn-sm" type="submit" style="padding-left: 55px; font-size: 22px; padding-right: 55px">Book</button>
                     </a>
                 </form>
 
