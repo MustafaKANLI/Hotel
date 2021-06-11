@@ -16,40 +16,9 @@
 <!--This is for Header, navbar-->
 <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
     <header class="header">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../src/images/logo.png" alt="" width=50 height="30">
-                    Paradis Hotel
-
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                    <div class="col" align="left">
-                        <link rel="stylesheet" href="profileHoverDropdown.css">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                    <div class="dropdown-content">
-                                        <ul >
-                                            <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                            <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                            <li ><a href="login.html" style="color:black">Log Out</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php
+        require ("header.php");
+        ?>
     </header>
 
 </div>
@@ -142,6 +111,22 @@
 
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
+                <?php
+
+                $date = date("Y-m-d");
+
+
+                $selectSql = "SELECT * FROM reservations
+                INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
+                INNER JOIN customers ON customers.id = reservations.customerid
+               
+                ORDER BY reservations.doornumber ASC
+                ";
+                $resultSql = $conn->query($selectSql);
+                $totalReservations = $resultSql ->num_rows;
+
+
+                ?>
 
                 <div class="col-4" style="border: 1px solid; margin-right:20px; background-color: white; width:20rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
                     <div class="row">
@@ -153,7 +138,7 @@
                                 <h5>Total Reservations</h5>
                             </div>
                             <div class="row">
-                                <h4>1550</h4>
+                                <h4><?php echo $totalReservations; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -162,22 +147,9 @@
 
             </div>
 
-            <!-- This is for Table -->
-            <?php
-            $date = date("Y-m-d");
-            include("../src/database/connect_db.php");
 
-            $selectSql = "SELECT * FROM reservations
-                INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
-                INNER JOIN customers ON customers.id = reservations.customerid
-               
-                ORDER BY reservations.doornumber ASC
-                ";
-            $resultSql= $conn->query($selectSql);
-
-            ?>
             <!-- This is for Table -->
-            <div class="row" style="margin-top: 10rem">
+            <div class="row" style="margin-top: 10rem; margin-bottom: 30px;">
                 <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
                     <table class="table">
                         <thead>

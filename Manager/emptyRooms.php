@@ -112,66 +112,9 @@
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
 
-                <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Total Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>120</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; margin-right:20px;  background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booked Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>30</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; margin-right:20px; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booking Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>20</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Empty Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>70</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                require("bookDash.php");
+                ?>
 
 
             </div>

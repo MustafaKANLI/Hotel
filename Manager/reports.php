@@ -108,6 +108,25 @@
             </div>
         </div>
 
+        <?php
+
+
+        $selectSql = $conn->query("SELECT * FROM reports
+                ");
+
+
+        function revenueCalc($query){
+            include("../src/database/connect_db.php");
+            $total = 0;
+            while($result = $query->fetch_assoc()){
+                $total += $result['revenue'];
+            }
+
+            return $total;
+        }
+
+        ?>
+
 
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
@@ -122,7 +141,7 @@
                                 <h5>Total Reports</h5>
                             </div>
                             <div class="row">
-                                <h4>15</h4>
+                                <h4><?php echo $selectSql->num_rows; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -131,24 +150,7 @@
 
             </div>
 
-            <?php
 
-            include("../src/database/connect_db.php");
-            $selectSql = $conn->query("SELECT * FROM reports
-                ");
-
-
-            function revenueCalc($query){
-                include("../src/database/connect_db.php");
-                $total = 0;
-                while($result = $query->fetch_assoc()){
-                    $total += $result['revenue'];
-                }
-
-                return $total;
-            }
-
-            ?>
 
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">

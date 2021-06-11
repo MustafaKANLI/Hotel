@@ -112,6 +112,27 @@
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
 
+                <?php
+
+                $select = $conn -> query("SELECT * FROM comments
+                                             INNER JOIN customers ON comments.customerid = customers.id");
+
+                $totalComments = $select -> num_rows;
+
+                function avgRate($select){
+                    $total = 0;
+                    while($rows = $select -> fetch_assoc()){
+                        $total += $rows['rate'];
+                    }
+
+                    $avg = $total / ($select-> num_rows);
+                    $avg = number_format($avg, 2, '.', ',');
+
+                    return $avg;
+                }
+
+                ?>
+
                 <div class="col-4" style="border: 1px solid; margin-right:20px; background-color: white; width:20rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
                     <div class="row">
                         <div class="col-2">
@@ -122,7 +143,7 @@
                                 <h5>Total Comments</h5>
                             </div>
                             <div class="row">
-                                <h4>350</h4>
+                                <h4><?php echo $totalComments; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -137,7 +158,7 @@
                                 <h5>Rate</h5>
                             </div>
                             <div class="row">
-                                <h4>4.82</h4>
+                                <h4><?php echo avgRate($select); ?></h4>
                             </div>
                         </div>
                     </div>
@@ -165,6 +186,17 @@
                     <div class="row" style="border: 1px solid; padding-left: 15px; margin-top: 10px">
                         <div class="col-2" style="padding-top: 10px">
                             <img src="../src/images/five-stars.png" alt="..." width="82px" height="15px">
+                            <div class="row" style="margin-top: 5px">
+                                <?php
+                                echo $comment['datetime'];
+                                ?>
+                            </div>
+                            <div class="row" style="margin-top: 5px">
+                                <?php
+                                echo $comment['roomtype'];
+                                ?>
+                                Room
+                            </div>
                         </div>
                         <div class="col-6" style="padding-top:10px">
                             <div class="row">

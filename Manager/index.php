@@ -108,6 +108,21 @@
             </div>
         </div>
 
+        <?php
+        function revenueCalc($query){
+            include("../src/database/connect_db.php");
+            $total = 0;
+            while($result = $query->fetch_assoc()){
+                $total += $result['revenue'];
+            }
+
+            return $total;
+        }
+
+
+
+        ?>
+
 
 
         <div class="col-sm-3"  align="center" style="margin-top: 2rem">

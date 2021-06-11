@@ -109,88 +109,18 @@
         </div>
 
 
+
+
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
 
-                    <div class="col-3" style="border: 1px solid; margin-right:20px; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../src/images/rooms.png" width="50" height="50">
-                            </div>
-                            <div class="col-10" align="center">
-                                <div class="row">
-                                    <h5>Total Rooms</h5>
-                                </div>
-                                <div class="row">
-                                    <h4>120</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-3" style="border: 1px solid; margin-right:20px;  background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booked Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>30</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; margin-right:20px; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Booking Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>20</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem; padding-left:20px; padding-top:50px" align="center">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="../src/images/rooms.png" width="50" height="50">
-                        </div>
-                        <div class="col-10" align="center">
-                            <div class="row">
-                                <h5>Empty Rooms</h5>
-                            </div>
-                            <div class="row">
-                                <h4>70</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+               <?php
+               require("bookDash.php");
+               ?>
 
             </div>
 
-            <!-- This is for Table -->
 
-            <?php
-            $date = date("Y-m-d");
-            include("../src/database/connect_db.php");
-
-            $selectSql = "SELECT * FROM reservations
-                INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
-                INNER JOIN customers ON customers.id = reservations.customerid
-                WHERE checkindate > '".$date."'
-                ORDER BY reservations.doornumber ASC
-                ";
-            $resultSql= $conn->query($selectSql);
-
-            ?>
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem">
                 <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
@@ -209,7 +139,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        while($room = $resultSql->fetch_assoc()){
+                        while($room = $selectSqlBooking->fetch_assoc()){
                             ?>
                             <tr>
                                 <td><?php echo $room["roomtype"]?> Room</td>
