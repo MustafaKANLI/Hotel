@@ -16,40 +16,13 @@
 <!--This is for Header, navbar-->
 <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
     <header class="header">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../src/images/logo.png" alt="" width=50 height="30">
-                    Paradis Hotel
-
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                    <div class="col" align="left">
-                        <link rel="stylesheet" href="profileHoverDropdown.css">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
-                                    <div class="dropdown-content">
-                                        <ul >
-                                            <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                            <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                            <li ><a href="login.html" style="color:black">Log Out</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php
+        require ("header.php");
+        if(!isset($_SESSION['id'])){
+            header("Location: login.php");
+            exit();
+        }
+        ?>
     </header>
 
 </div>
@@ -78,7 +51,7 @@
                         <div class="sidebar-heading"  align="center">
                             <img src="../src/images/profile_black.png" width="60px" height="60px">
 
-                            <h3 style="padding-top: 10px"><strong>Mustafa KANLI</strong></h3>
+                            <h3 style="padding-top: 10px"><strong><?php echo($_SESSION['name'] . " " . $_SESSION['surname']); ?></strong></h3>
                         </div>
                         <li class="list-group " >
 
@@ -131,6 +104,10 @@
                                     <a href="comments.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="messages.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                        <i class="bi bi-chat-text"></i>    Messages</a>
+                                </li>
 
                             </ul>
                     </div>
@@ -162,7 +139,7 @@
                             </form>
                         </div>
                         <div class="col-lg-8" align="right">
-                            <a class="btn btn-outline-secondary" href="addRoom.html" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Room</a>
+                            <a class="btn btn-outline-secondary" href="addRoom.php" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Room</a>
                         </div>
                     </div>
 
@@ -216,7 +193,13 @@
                          
                                                 <td>
                                                      <div class='btn-group' role='group' aria-label='Basic outlined example'>
-                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                     <input type='hidden' name='doornumber' value='".$results['doornumber']."'>
+                                                     <input type='hidden' name='roomtype' value='".$results['roomtype']."'>
+                                                     <input type='hidden' name='floornumber' value='".$results['floornumber']."'>
+                                                     <input type='hidden' name='price' value='".$results['price']."'>
+                                                     <input type='hidden' name='status' value='".$results['status']."'>
+                                                     
+                                                        <button class='btn btn-outline-success' type='submit' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</button>
                                                         <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
                                                     </div>
                                                 </td>
@@ -250,8 +233,16 @@
                          
                                                 <td>
                                                      <div class='btn-group' role='group' aria-label='Basic outlined example'>
-                                                        <a class='btn btn-outline-success' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</a>
+                                                      <form method='POST' action='rooms.php'>
+                                                     <input type='hidden' name='doornumber' value='".$select['doornumber']."'>
+                                                     <input type='hidden' name='roomtype' value='".$select['roomtype']."'>
+                                                     <input type='hidden' name='floornumber' value='".$select['floornumber']."'>
+                                                     <input type='hidden' name='price' value='".$select['price']."'>
+                                                     <input type='hidden' name='status' value='".$select['status']."'>
+                                                     
+                                                        <button class='btn btn-outline-success' type='submit' data-bs-toggle='modal' data-bs-target='#modalEdit'>Edit</button>
                                                         <a type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modalDelete'>Delete</a>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -292,7 +283,7 @@
                                         </div>
                                         <div class="row" style="margin-top:10px; padding-left: 10px;padding-right: 10px">
                                             <label for="inputFloor" >Floor Number</label>
-                                            <input type="number" class="form-control" id="inputFloor">
+                                            <input type="number" class="form-control" id="inputFloor" value="<?php echo $_POST['floornumber']; ?>">
                                         </div>
                                         <div class="row" style="margin-top:10px; padding-left: 10px;padding-right: 10px">
                                             <label for="inputDoor" >Door Number</label>
@@ -350,7 +341,7 @@
 
 <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
     <footer>
-        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
     </footer>
 
 </div>

@@ -18,6 +18,10 @@
     <header class="header">
         <?php
         require ("header.php");
+        if(!isset($_SESSION['id'])){
+            header("Location: login.php");
+            exit();
+        }
         ?>
     </header>
 
@@ -47,7 +51,7 @@
                         <div class="sidebar-heading"  align="center">
                             <img src="../src/images/profile_black.png" width="60px" height="60px">
 
-                            <h3 style="padding-top: 10px"><strong>Mustafa KANLI</strong></h3>
+                            <h3 style="padding-top: 10px"><strong><?php echo($_SESSION['name'] . " " . $_SESSION['surname']); ?></strong></h3>
                         </div>
                         <li class="list-group " >
 
@@ -99,6 +103,10 @@
                                 <li class="nav-item">
                                     <a href="comments.php" class="list-group-item list-group-item-action bg-primary" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="messages.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                        <i class="bi bi-chat-text"></i>    Messages</a>
                                 </li>
 
                             </ul>
@@ -279,7 +287,7 @@
 
 <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
     <footer>
-        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
     </footer>
 
 </div>

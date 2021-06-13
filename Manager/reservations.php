@@ -18,6 +18,10 @@
     <header class="header">
         <?php
         require ("header.php");
+        if(!isset($_SESSION['id'])){
+            header("Location: login.php");
+            exit();
+        }
         ?>
     </header>
 
@@ -47,7 +51,7 @@
                         <div class="sidebar-heading"  align="center">
                             <img src="../src/images/profile_black.png" width="60px" height="60px">
 
-                            <h3 style="padding-top: 10px"><strong>Mustafa KANLI</strong></h3>
+                            <h3 style="padding-top: 10px"><strong><?php echo($_SESSION['name'] . " " . $_SESSION['surname']); ?></strong></h3>
                         </div>
                         <li class="list-group " >
 
@@ -100,6 +104,10 @@
                                     <a href="comments.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="messages.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                        <i class="bi bi-chat-text"></i>    Messages</a>
+                                </li>
 
                             </ul>
                     </div>
@@ -112,7 +120,7 @@
         <div class="col-9">
             <div class="row"  align="center" style="margin-top: 2rem">
                 <?php
-
+                include("../src/database/connect_db.php");
                 $date = date("Y-m-d");
 
 
@@ -148,9 +156,22 @@
             </div>
 
 
+
+
             <!-- This is for Table -->
             <div class="row" style="margin-top: 10rem; margin-bottom: 30px;">
                 <div class="col" style="border: 1px solid; padding:15px; overflow:auto; max-height: 600px; background-color: white">
+                    <div class="row">
+                        <div class="col-lg-4" align="left">
+                            <form class="d-flex" action="reservations.php?operation=search" method="POST">
+                                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-8" align="right">
+                            <a class="btn btn-outline-secondary" href="addReservation.php" style="max-width: 280px"><i class="bi bi-plus-circle-dotted"></i> Add new Reservation</a>
+                        </div>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -166,6 +187,52 @@
                         </thead>
                         <tbody>
                         <?php
+                        $operation = @$_GET["operation"];
+
+
+                        if($operation == "search") {
+                            if ($_POST) {
+                                $search = $_POST["search"];
+
+                                $selectRow = $conn->query("SELECT * FROM reservations 
+                                        INNER JOIN rooms ON reservations.doornumber = rooms.doornumber
+                                        INNER JOIN customers ON customers.id = reservations.customerid
+                                        WHERE id like '" . '%' . $search . '%' . "' or fname like '" . '%' . $search . '%' . "' or
+                                         lname like '" . '%' . $search . '%' . "' or reservations.doornumber like '".'%'.$search.'%'."' 
+                                         or roomtype like '" . '%' . $search . '%' . "' or checkindate like '" . '%' . $search . '%' . "' 
+                                         or checkoutdate like '" . '%' . $search . '%' . "'
+
+                                        ORDER BY reservations.doornumber ASC");
+
+                                //echo ($conn -> error);
+                                if ($selectRow->num_rows > 0) {
+                                    while ($results = $selectRow->fetch_assoc()) {
+
+                                        echo "
+                                            <tr>
+                                                <td>" . $results['roomtype'] . "</td>
+                                                <td>" . $results['doornumber'] . "</td>
+                                                <td>" . $results['customerid'] . "</td>
+                                                <td>" . $results['fname'] . "</td>
+                                                <td>" . $results['lname'] . "</td>
+                                                <td>" . $results['checkindate'] . "</td>
+                                                <td>" . $results['checkoutdate'] . "</td>
+                                                <td>" . $results['totalprice'] . "</td>
+                                                
+                                            </tr>
+                                        ";
+
+                                    }
+                                } else {
+                                    echo "<div class='row' style='background-color: lightpink; margin-top:30px; margin-bottom: 20px'>There were no results...</div>";
+
+                                }
+                            }
+                        }
+
+                        if($operation == ""){
+
+
                         while($room = $resultSql->fetch_assoc()){
                             ?>
                             <tr>
@@ -180,6 +247,7 @@
                             </tr>
 
                             <?php
+                        }
                         }
                         ?>
 
@@ -269,7 +337,7 @@
 
 <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
     <footer>
-        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
     </footer>
 
 </div>

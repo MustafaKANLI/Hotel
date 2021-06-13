@@ -1,6 +1,21 @@
 <?php
+session_name("mgr");
 session_start();
 include("../src/database/connect_db.php");
+
+
+$loginText = "<img src='../src/images/profile.png' width='35px' height='35px'>";
+$loginLink = "";
+
+if(isset($_SESSION["id"])) {
+    $loginText = $_SESSION['name'];
+    $loginLink = "profileInformations.php";
+
+}
+else{
+    //$loginText = '<img src="../src/images/profile.png" width="35px" height="35px">';
+    $loginLink = "login.php";
+}
 ?>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -21,12 +36,12 @@ include("../src/database/connect_db.php");
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a class="nav-link " href="#"><img src="../src/images/profile.png" width="35px" height="35px"></a>
+                                        <a class="nav-link " href="<?php echo($loginLink); ?>"><?php echo($loginText); ?></a>
                                         <div class="dropdown-content">
                                             <ul >
-                                                <li ><a href="profileInformations.html"  style="color:black">Information</a></li>
-                                                <li ><a href="profilePassword.html"  style="color:black">Change Password</a></li>
-                                                <li ><a href="login.html" style="color:black">Log Out</a></li>
+                                                <li ><a href="profileInformations.php"  style="color:black">Information</a></li>
+                                                <li ><a href="profilePassword.php" style="color:black">Change Password</a></li>
+                                                <li ><a href="logout.php" style="color:black">Log Out</a></li>
                                             </ul>
                                         </div>
                                     </div>

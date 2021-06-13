@@ -17,6 +17,12 @@
         <header class="header">
             <?php
             require ("header.php");
+
+            if(!isset($_SESSION['id'])){
+                header("Location: login.php");
+                exit();
+            }
+
             ?>
         </header>
 
@@ -52,6 +58,7 @@
                         <a href="reservations.php" class="list-group-item list-group-item-action">Reservations</a>
                         <a href="profile_changePassword.php" class="list-group-item list-group-item-action">Change Password</a>
                         <a href="profile_reviews.php" class="list-group-item list-group-item-action">Reviews</a>
+                        <a href="profile_messages.php" class="list-group-item list-group-item-action">Messages</a>
 
                     </div>
                 </div>

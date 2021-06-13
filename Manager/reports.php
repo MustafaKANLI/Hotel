@@ -18,6 +18,10 @@
     <header class="header">
         <?php
         require ("header.php");
+        if(!isset($_SESSION['id'])){
+            header("Location: login.php");
+            exit();
+        }
         ?>
     </header>
 
@@ -47,7 +51,7 @@
                         <div class="sidebar-heading"  align="center">
                             <img src="../src/images/profile_black.png" width="60px" height="60px">
 
-                            <h3 style="padding-top: 10px"><strong>Mustafa KANLI</strong></h3>
+                            <h3 style="padding-top: 10px"><strong><?php echo($_SESSION['name'] . " " . $_SESSION['surname']); ?></strong></h3>
                         </div>
                         <li class="list-group " >
 
@@ -99,6 +103,10 @@
                                 <li class="nav-item">
                                     <a href="comments.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
                                         <i class="bi bi-star"></i>    Comments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="messages.php" class="list-group-item list-group-item-action bg-dark" style="color:white">
+                                        <i class="bi bi-chat-text"></i>    Messages</a>
                                 </li>
 
                             </ul>
@@ -167,21 +175,23 @@
                                     <h5 class="modal-title" id="newReportModel">Get a Report</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <form action="reports.php" method="POST">
                                 <div class="modal-body">
                                     <h5>Starting Date</h5>
                                     <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="checkInInput" >
+                                        <input type="date" name="startdate" class="form-control" id="checkInInput" >
                                         <label for="checkInInput">Starting Date</label>
                                     </div>
                                     <h5>End Date</h5>
                                     <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="checkOutInput" >
+                                        <input type="date" name="enddate" class="form-control" id="checkOutInput" >
                                         <label for="checkOutInput">End Date</label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -247,10 +257,45 @@
 
 <div class="container-fluid" align="right" style="padding-top: 40px; padding-bottom: 30px; padding-right: 30px; background-color: #313642">
     <footer>
-        <a href="https://github.com/201KANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
+        <a href="https://github.com/MustafaKANLI" target="_blank" style="color: #f3f4ed">Made by Mustafa Nur KANLI</a>
     </footer>
 
 </div>
 </div>
 </body>
 </html>
+
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //echo $_POST["startdate"];
+    if(!empty ($_POST["startdate"] and $_POST["enddate"])){
+
+        $select = $conn -> query("SELECT * FROM reservations
+                        WHERE checkindate < '".$_POST['startdate']."' and checkoutdate > '".$_POST['enddate']."'");
+
+        $result = $select -> fetch_assoc();
+
+
+        $revenue = revenueCalculator($select);
+
+        $insert = $conn -> query("INSERT INTO reports (startdate,enddate,revenue,totalreservations)
+                                 VALUES ('".$_POST['startdate']."', '".$_POST['enddate']."', '".$revenue."', '".$select -> num_rows."' )");
+
+    }
+
+}
+
+
+
+function revenueCalculator($query){
+    include("../src/database/connect_db.php");
+    $total = 0;
+    while($row = $query->fetch_assoc()){
+        $total += $row['totalprice'];
+    }
+    return $total;
+}
+
+
+?>

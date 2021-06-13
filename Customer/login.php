@@ -17,7 +17,7 @@
             <div class="container shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #f3f4ed">
                 <header class="header">
                     <?php
-                        require ("header.php");
+                    require ("header.php");
 
                     if(isset($_SESSION['id'])){
                         header("Location:profile_accountDetails.php");

@@ -18,7 +18,10 @@
             <?php
             require ("header.php");
 
-
+            if(!isset($_SESSION['id'])){
+                header("Location: login.php");
+                exit();
+            }
             ?>
         </header>
 
@@ -39,42 +42,51 @@
     //include("../src/database/connect_db.php");
     $wrongPassword = $passwordDoesntMatch = $generalErrorOld = $generalErrorNew = $generalErrorNewAgain = "";
 
-    if(isset($_POST["old_password"],$_POST["new_password"],$_POST["new_passwordAgain"])){
-
-        $oldPassword = input(md5($_POST["old_password"]));
-        $newPassword = input(md5($_POST["new_password"]));
-        $newPasswordAgain = input(md5($_POST["new_passwordAgain"]));
-
-        $selectSql = $conn -> query("SELECT * FROM `customers` 
-                                        WHERE   id = '".$_SESSION['id']."'");
-        $user = $selectSql->fetch_assoc();
-
-        if($oldPassword == $user['password'] and $newPassword == $newPasswordAgain){
-            $update = $conn -> query("UPDATE customers
-                   SET password = '".$newPassword."'
-                   WHERE id = '".$_SESSION['id']."'");
-
-        }
-
-        if(empty($oldPassword)){
-            $generalErrorOld = "This section can't be empty!!!!";
-        }
-        if(empty($newPassword)){
-            $generalErrorNew = "This section can't be empty!!!!";
-        }
-        if(empty($newPasswordAgain)){
-            $generalErrorNewAgain = "This section can't be empty!!!!";
-        }
-        if($oldPassword != $user['password']){
-            $wrongPassword = "Your password is wrong!!!!";
-        }
-        if($newPassword != $newPasswordAgain){
-            $passwordDoesntMatch = "Password doesn't match!!!!";
-        }
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
+
+       if(empty($_POST["old_password"])){
+           $generalErrorOld = "This section can't be empty!!!!";
+       }
+       if(empty($_POST["new_password"])){
+           $generalErrorNew = "This section can't be empty!!!!";
+       }
+       if(empty($_POST["new_passwordAgain"])){
+           $generalErrorNewAgain = "This section can't be empty!!!!";
+       }
+
+       if(!empty($_POST["new_password"] and $_POST["old_password"] and $_POST["new_passwordAgain"])){
+
+
+            $oldPassword = input(md5($_POST["old_password"]));
+            $newPassword = input(md5($_POST["new_password"]));
+            $newPasswordAgain = input(md5($_POST["new_passwordAgain"]));
+
+            $selectSql = $conn -> query("SELECT * FROM `customers` 
+                                            WHERE   id = '".$_SESSION['id']."'");
+            $user = $selectSql->fetch_assoc();
+
+            if($oldPassword == $user['password'] and $newPassword == $newPasswordAgain){
+                $update = $conn -> query("UPDATE customers
+                       SET password = '".$newPassword."'
+                       WHERE id = '".$_SESSION['id']."'");
+
+            }
+
+            //echo ($_POST["new_password"] . "ffff");
+
+            if($oldPassword != $user['password']){
+                $wrongPassword = "Your password is wrong!!!!";
+            }
+            if($newPassword != $newPasswordAgain){
+                $passwordDoesntMatch = "Password doesn't match!!!!";
+            }
+
+       }
 
     }
+
 
     function input($data) {
         $data = trim($data);
@@ -98,6 +110,7 @@
                         <a href="reservations.php" class="list-group-item list-group-item-action">Reservations</a>
                         <a href="profile_changePassword.php" class="list-group-item list-group-item-action active">Change Password</a>
                         <a href="profile_reviews.php" class="list-group-item list-group-item-action">Reviews</a>
+                        <a href="profile_messages.php" class="list-group-item list-group-item-action">Messages</a>
 
                     </div>
                 </div>
@@ -108,9 +121,7 @@
                         <label for="passwordInput">Password</label>
                         <?php
                         echo $generalErrorOld;
-                        ?>
-                        <br>
-                        <?php
+
                         echo $wrongPassword;
                         ?>
                     </div>
@@ -120,9 +131,7 @@
                         <label for="passwordInput">Password</label>
                         <?php
                         echo $generalErrorNew;
-                        ?>
-                        <br>
-                        <?php
+
                         echo $passwordDoesntMatch;
                         ?>
                     </div>
@@ -133,9 +142,7 @@
                         <label for="passwordInput">Password</label>
                         <?php
                         echo $generalErrorNewAgain;
-                        ?>
-                        <br>
-                        <?php
+
                         echo $passwordDoesntMatch;
                         ?>
                     </div>

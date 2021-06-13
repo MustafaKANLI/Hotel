@@ -17,6 +17,10 @@
         <header class="header">
             <?php
             require ("header.php");
+            if(!isset($_SESSION['id'])){
+                header("Location: login.php");
+                exit();
+            }
             ?>
         </header>
 
@@ -98,10 +102,10 @@
             <form action="userRegister.php" method="POST">
                 <div class="row" align="left" style="margin-top:40px">
                     <p><span class="error" style="color: #ff0000">all of them are required</span></p>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <h5>Name</h5>
                         <div class="form-floating mb-3">
-                            <input name="name" type="text" class="form-control" id="nameInput" placeholder="Your Name">
+                            <input name="name" type="text" class="form-control" id="nameInput" >
                             <label for="nameInput">Name</label>
                             <?php
                             echo $nameError;
@@ -109,7 +113,7 @@
                         </div>
                         <h5>Surname</h5>
                         <div class="form-floating mb-3">
-                            <input name="surname" type="text" class="form-control" id="surnameInput" placeholder="Your Surname">
+                            <input name="surname" type="text" class="form-control" id="surnameInput">
                             <label for="surnameInput">Surname</label>
                             <?php
                             echo $surnameError;
@@ -117,7 +121,7 @@
                         </div>
                         <h5>ID</h5>
                         <div class="form-floating mb-3">
-                            <input name="id" type="number" class="form-control" id="IdInput" placeholder="ID">
+                            <input name="id" type="number" class="form-control" id="IdInput">
                             <label for="IdInput">ID</label>
                             <?php
                             echo $idError;
@@ -125,7 +129,7 @@
                         </div>
                         <h5>Phone Number</h5>
                         <div class="form-floating mb-3">
-                            <input name="phoneNumber" type="phone" class="form-control" id="phoneInput" placeholder="Eg. 555 555 55 55">
+                            <input name="phoneNumber" type="phone" class="form-control" id="phoneInput" >
                             <label for="phoneInput">Phone Number</label>
                             <?php
                             echo $phoneNumberError;
@@ -133,10 +137,10 @@
                         </div>
 
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <h5>E-Mail</h5>
                         <div class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="mailInput" placeholder="name@example.com">
+                            <input name="email" type="email" class="form-control" id="mailInput">
                             <label for="mailInput">E-mail address</label>
                             <?php
                             echo $emailError;
@@ -144,7 +148,7 @@
                         </div>
                         <h5>Password</h5>
                         <div class="form-floating mb-3">
-                            <input name="password" type="password" class="form-control" id="passwordInput" placeholder="password">
+                            <input name="password" type="password" class="form-control" id="passwordInput">
                             <label for="passwordInput">Password</label>
                             <p>
                                 <?php
@@ -158,7 +162,7 @@
                         </div>
                         <h5>Password (Again)</h5>
                         <div class="form-floating mb-3">
-                            <input name="passwordAgain" type="password" class="form-control" id="passwordInput2" placeholder="password">
+                            <input name="passwordAgain" type="password" class="form-control" id="passwordInput2">
                             <label for="passwordInput2">Password</label>
                             <p>
                             <?php

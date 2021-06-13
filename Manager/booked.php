@@ -18,6 +18,10 @@
     <header class="header">
         <?php
         require ("header.php");
+        if(!isset($_SESSION['id'])){
+            header("Location: login.php");
+            exit();
+        }
         ?>
     </header>
 
@@ -47,7 +51,7 @@
                         <div class="sidebar-heading"  align="center">
                             <img src="../src/images/profile_black.png" width="60px" height="60px">
 
-                            <h3 style="padding-top: 10px"><strong>Mustafa KANLI</strong></h3>
+                            <h3 style="padding-top: 10px"><strong><?php echo($_SESSION['name'] . " " . $_SESSION['surname']); ?></strong></h3>
                         </div>
                         <li class="list-group " >
 

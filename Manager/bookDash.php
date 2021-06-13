@@ -87,6 +87,7 @@ $emptyRooms = $selectEmptyRooms->num_rows;
 </div>
 <div class="col-3" style="border: 1px solid; background-color: white; width:15rem;height:10rem;
                         padding-left:20px; padding-top:50px; box-shadow: 3px 3px 4px 4px #777777"" align="center">
+<a href="emptyRooms.php" style="text-decoration: none; color: black;">
     <div class="row">
         <div class="col-2">
             <img src="../src/images/rooms.png" width="50" height="50">
@@ -100,4 +101,5 @@ $emptyRooms = $selectEmptyRooms->num_rows;
             </div>
         </div>
     </div>
+</a>
 </div>
